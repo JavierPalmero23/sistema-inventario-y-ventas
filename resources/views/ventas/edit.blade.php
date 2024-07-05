@@ -52,7 +52,7 @@
             </div>
             <div class="form-group">
                 <label for="fecha_venta">Fecha de Venta</label>
-                <input type="date" name="fecha_venta" class="form-control" id="fecha_venta" value="{{ $venta->fecha_venta }}" required>
+                <input type="date" name="fecha_venta" class="form-control" id="fecha_venta" value="{{ $venta->fecha_venta }}" max="{{ date('Y-m-d') }}" required>
             </div>
             <div class="form-group">
                 <label for="cambio">Cambio</label>

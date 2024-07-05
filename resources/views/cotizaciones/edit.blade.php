@@ -28,7 +28,7 @@
             </div>
             <div class="form-group">
                 <label for="fecha_cot">Fecha de Cotización</label>
-                <input type="date" name="fecha_cot" class="form-control" id="fecha_cot" value="{{ $cotizacion->fecha_cot }}" required>
+                <input type="date" name="fecha_cot" class="form-control" id="fecha_cot" value="{{ $cotizacion->fecha_cot }}" max="{{ date('Y-m-d') }}" required>
             </div>
             <div class="form-group">
                 <label for="vigencia">Vigencia</label>

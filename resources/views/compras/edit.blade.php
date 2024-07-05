@@ -36,7 +36,7 @@
             </div>
             <div class="form-group">
                 <label for="fecha_compra">Fecha de Compra</label>
-                <input type="date" name="fecha_compra" class="form-control" id="fecha_compra" value="{{ $compra->fecha_compra }}" required>
+                <input type="date" name="fecha_compra" class="form-control" id="fecha_compra" value="{{ $compra->fecha_compra }}" max="{{ date('Y-m-d') }}" required>
             </div>
             <div class="form-group">
                 <label for="descuento">Descuento</label>
