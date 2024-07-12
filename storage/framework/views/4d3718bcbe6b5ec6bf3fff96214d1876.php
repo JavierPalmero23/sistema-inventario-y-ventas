@@ -14,6 +14,7 @@
                 <input type="text" name="tipo" class="form-control" id="tipo" required>
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="<?php echo e(route('formas-pago.index')); ?>" class="btn btn-primary">Volver</a>
         </form>
     </div>
 <?php $__env->stopSection(); ?>

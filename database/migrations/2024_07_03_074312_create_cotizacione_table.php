@@ -10,14 +10,13 @@ class CreateCotizacioneTable extends Migration
     {
         Schema::create('cotizaciones', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_producto');
             $table->unsignedBigInteger('id_cliente');
             $table->date('fecha_cot');
+            $table->decimal('total', 15, 2);
             $table->date('vigencia');
             $table->text('comentarios')->nullable();
             $table->timestamps();
 
-            $table->foreign('id_producto')->references('id_producto')->on('productos')->onDelete('cascade');
             $table->foreign('id_cliente')->references('id_cliente')->on('clientes')->onDelete('cascade');
         });
     }

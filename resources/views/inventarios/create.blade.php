@@ -41,5 +41,6 @@
             <input type="number" name="cantidad" class="form-control">
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="{{ route('inventarios.index') }}" class="btn btn-dark">Volver</a>
     </form>
 @endsection

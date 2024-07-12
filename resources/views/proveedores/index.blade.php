@@ -28,7 +28,7 @@
                         <td>{{ $proveedores->correo }}</td>
                         <td>{{ $proveedores->telefono }}</td>
                         <td>
-                            <a href="{{ route('proveedores.show', $proveedores->id_proveedor) }}" class="btn btn-info">Ver</a>
+                            <!--aunno<a href="{{ route('proveedores.show', $proveedores->id_proveedor) }}" class="btn btn-info">Ver</a>-->
                             <a href="{{ route('proveedores.edit', $proveedores->id_proveedor) }}" class="btn btn-warning">Editar</a>
                             <form action="{{ route('proveedores.destroy', $proveedores->id_proveedor) }}" method="POST" style="display:inline;">
                                 @csrf

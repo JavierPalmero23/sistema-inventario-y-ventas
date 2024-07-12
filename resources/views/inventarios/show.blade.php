@@ -15,5 +15,5 @@
         @method('DELETE')
         <button type="submit">Delete</button>
     </form>
-    <a href="{{ route('inventarios.index') }}">Back to List</a>
+    <a href="{{ route('inventarios.index') }}">Volver</a>
 @endsection

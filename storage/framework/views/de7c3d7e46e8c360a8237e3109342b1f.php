@@ -1,4 +1,4 @@
-<!-- resources/views/ventas/create.blade.php -->
+<!-- resources\views\ventas\create.blade.php -->
 
 
 
@@ -70,6 +70,7 @@
                 <input type="number" name="total" class="form-control" id="total" step="0.01" required>
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="<?php echo e(route('ventas.index')); ?>" class="btn btn-dark">Volver</a>
         </form>
     </div>
 <?php $__env->stopSection(); ?>

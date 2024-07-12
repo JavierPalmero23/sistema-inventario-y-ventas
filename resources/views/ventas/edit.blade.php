@@ -1,6 +1,6 @@
-<!-- resources/views/ventas/edit.blade.php -->
+<!-- resources\views\ventas\edit.blade.php -->
 
-@extends('layouts.app')
+ @extends('layouts.app')
 
 @section('title', 'Editar Venta')
 

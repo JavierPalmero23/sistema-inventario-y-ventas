@@ -5,26 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cotizacione extends Model
+class DetalleCotizacion extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'id_cliente', 'fecha_cot', 'total', 'vigencia', 'comentarios',
+        'cotizacion_id', 'id_producto', 'cantidad', 'precio',
     ];
 
-    public function detalles()
+    public function cotizacion()
     {
-        return $this->hasMany(DetalleCotizacion::class);
+        return $this->belongsTo(Cotizacione::class, 'cotizacion_id');
     }
 
     public function producto()
     {
         return $this->belongsTo(Producto::class, 'id_producto');
-    }
-
-    public function cliente()
-    {
-        return $this->belongsTo(Cliente::class, 'id_cliente');
     }
 }

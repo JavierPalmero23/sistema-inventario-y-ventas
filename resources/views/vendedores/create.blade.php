@@ -1,4 +1,4 @@
-<!-- resources/views/vendedores/create.blade.php -->
+<!-- resources\views\vendedores\create.blade.php -->
 
 @extends('layouts.app')
 
@@ -22,6 +22,7 @@
                 <input type="text" name="telefono" class="form-control" id="telefono" required>
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{{ route('vendedores.index') }}" class="btn btn-dark">Volver</a>
         </form>
     </div>
 @endsection

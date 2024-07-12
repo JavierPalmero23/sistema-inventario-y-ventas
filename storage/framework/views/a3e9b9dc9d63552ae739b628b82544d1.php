@@ -14,6 +14,7 @@
                 <input type="text" name="nombre" class="form-control" id="nombre" required>
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="<?php echo e(route('categorias.index')); ?>" class="btn btn-primary">Volver</a>
         </form>
     </div>
 <?php $__env->stopSection(); ?>

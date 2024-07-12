@@ -41,6 +41,7 @@
             <input type="number" name="cantidad" class="form-control">
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="<?php echo e(route('inventarios.index')); ?>" class="btn btn-primary">Volver</a>
     </form>
 <?php $__env->stopSection(); ?>
 

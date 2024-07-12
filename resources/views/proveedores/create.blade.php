@@ -26,6 +26,7 @@
                 <input type="tel" name="telefono" class="form-control" id="telefono">
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{{ route('proveedores.index') }}" class="btn btn-dark">Volver</a>
         </form>
     </div>
 @endsection

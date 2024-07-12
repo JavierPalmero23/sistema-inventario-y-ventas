@@ -32,7 +32,7 @@
                         <td>{{ $compra->fecha_compra }}</td>
                         <td>{{ $compra->descuento }}</td>
                         <td>
-                            <a href="{{ route('compras.show', $compra->id) }}" class="btn btn-info">Ver</a>
+                            <!--aunno<a href="{{ route('compras.show', $compra->id) }}" class="btn btn-info">Ver</a>-->
                             <a href="{{ route('compras.edit', $compra->id) }}" class="btn btn-warning">Editar</a>
                             <form action="{{ route('compras.destroy', $compra->id) }}" method="POST" style="display:inline;">
                                 @csrf

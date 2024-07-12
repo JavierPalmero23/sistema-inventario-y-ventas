@@ -1,4 +1,4 @@
-<!-- resources/views/ventas/index.blade.php -->
+<!-- resources\views\ventas\index.blade.php -->
 
 
 

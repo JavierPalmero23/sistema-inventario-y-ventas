@@ -46,6 +46,7 @@
                 <textarea name="descripcion_larga" class="form-control" id="descripcion_larga" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{{ route('productos.index') }}" class="btn btn-dark">Volver</a>
         </form>
     </div>
 @endsection

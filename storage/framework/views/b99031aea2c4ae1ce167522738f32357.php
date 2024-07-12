@@ -36,7 +36,7 @@
                         <td><?php echo e($cliente->codigo_postal); ?></td>
                         <td><?php echo e($cliente->regimen_fiscal); ?></td>
                         <td>
-                            <a href="<?php echo e(route('clientes.show', $cliente->id_cliente)); ?>" class="btn btn-info">Ver</a>
+                            <!--aunno<a href="<?php echo e(route('clientes.show', $cliente->id_cliente)); ?>" class="btn btn-info">Ver</a>-->
                             <a href="<?php echo e(route('clientes.edit', $cliente->id_cliente)); ?>" class="btn btn-warning">Editar</a>
                             <form action="<?php echo e(route('clientes.destroy', $cliente->id_cliente)); ?>" method="POST" style="display:inline;">
                                 <?php echo csrf_field(); ?>

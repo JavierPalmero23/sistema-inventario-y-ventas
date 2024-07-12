@@ -1,4 +1,4 @@
-<!-- resources/views/ventas/show.blade.php -->
+<!-- resources\views\ventas\show.blade.php -->
 
 @extends('layouts.app')
 
@@ -20,7 +20,7 @@
                 <p class="card-text"><strong>Subtotal:</strong> {{ $venta->subtotal }}</p>
                 <p class="card-text"><strong>IVA:</strong> {{ $venta->iva }}</p>
                 <p class="card-text"><strong>Total:</strong> {{ $venta->total }}</p>
-                <a href="{{ route('ventas.index') }}" class="btn btn-primary">Volver</a>
+                <a href="{{ route('ventas.index') }}" class="btn btn-dark">Volver</a>
             </div>
         </div>
     </div>

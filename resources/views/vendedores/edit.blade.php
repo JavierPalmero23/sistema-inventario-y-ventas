@@ -1,4 +1,4 @@
-<!-- resources/views/vendedores/edit.blade.php -->
+<!-- resources\views\vendedores\edit.blade.php -->
 
 @extends('layouts.app')
 

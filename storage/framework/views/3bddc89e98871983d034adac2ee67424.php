@@ -42,6 +42,7 @@
                 <input type="text" name="regimen_fiscal" class="form-control" id="regimen_fiscal">
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="<?php echo e(route('clientes.index')); ?>" class="btn btn-primary">Volver</a>
         </form>
     </div>
 <?php $__env->stopSection(); ?>

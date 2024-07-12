@@ -42,6 +42,7 @@
                 <input type="text" name="regimen_fiscal" class="form-control" id="regimen_fiscal">
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{{ route('clientes.index') }}" class="btn btn-dark">Volver</a>
         </form>
     </div>
 @endsection

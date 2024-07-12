@@ -20,6 +20,11 @@ class Producto extends Model
     {
         return $this->belongsTo(Categoria::class, 'id_cat');
     }
+    
+    public function cotizacione()
+    {
+        return $this->belongsTo(Cotizacione::class, 'id');
+    }
 
     public function inventarios()
     {

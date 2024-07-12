@@ -1,5 +1,4 @@
-<!-- resources/views/vendedores/index.blade.php -->
-
+<!-- resources\views\vendedores\index.blade.php -->
 
 
 <?php $__env->startSection('title', 'Vendedores'); ?>
@@ -26,7 +25,7 @@
                         <td><?php echo e($vendedor->correo); ?></td>
                         <td><?php echo e($vendedor->telefono); ?></td>
                         <td>
-                            <a href="<?php echo e(route('vendedores.show', $vendedor->id_vendedor)); ?>" class="btn btn-info">Ver</a>
+                            <!--aunno<a href="<?php echo e(route('vendedores.show', $vendedor->id_vendedor)); ?>" class="btn btn-info">Ver</a>-->
                             <a href="<?php echo e(route('vendedores.edit', $vendedor->id_vendedor)); ?>" class="btn btn-warning">Editar</a>
                             <form action="<?php echo e(route('vendedores.destroy', $vendedor->id_vendedor)); ?>" method="POST" style="display:inline;">
                                 <?php echo csrf_field(); ?>

@@ -36,7 +36,7 @@
                         <td>{{ $cliente->codigo_postal }}</td>
                         <td>{{ $cliente->regimen_fiscal }}</td>
                         <td>
-                            <a href="{{ route('clientes.show', $cliente->id_cliente) }}" class="btn btn-info">Ver</a>
+                            <!--aunno<a href="{{ route('clientes.show', $cliente->id_cliente) }}" class="btn btn-info">Ver</a>-->
                             <a href="{{ route('clientes.edit', $cliente->id_cliente) }}" class="btn btn-warning">Editar</a>
                             <form action="{{ route('clientes.destroy', $cliente->id_cliente) }}" method="POST" style="display:inline;">
                                 @csrf

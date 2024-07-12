@@ -28,7 +28,7 @@
                         <td><?php echo e($proveedores->correo); ?></td>
                         <td><?php echo e($proveedores->telefono); ?></td>
                         <td>
-                            <a href="<?php echo e(route('proveedores.show', $proveedores->id_proveedor)); ?>" class="btn btn-info">Ver</a>
+                            <!--aunno<a href="<?php echo e(route('proveedores.show', $proveedores->id_proveedor)); ?>" class="btn btn-info">Ver</a>-->
                             <a href="<?php echo e(route('proveedores.edit', $proveedores->id_proveedor)); ?>" class="btn btn-warning">Editar</a>
                             <form action="<?php echo e(route('proveedores.destroy', $proveedores->id_proveedor)); ?>" method="POST" style="display:inline;">
                                 <?php echo csrf_field(); ?>

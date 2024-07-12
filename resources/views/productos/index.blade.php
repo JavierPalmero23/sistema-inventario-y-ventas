@@ -30,7 +30,7 @@
                         <td>{{ $producto->pc }}</td>
                         <td>{{ $producto->fecha_compra }}</td>
                         <td>
-                            <a href="{{ route('productos.show', $producto->id_producto) }}" class="btn btn-info">Ver</a>
+                            <!--aunno<a href="{{ route('productos.show', $producto->id_producto) }}" class="btn btn-info">Ver</a>-->
                             <a href="{{ route('productos.edit', $producto->id_producto) }}" class="btn btn-warning">Editar</a>
                             <form action="{{ route('productos.destroy', $producto->id_producto) }}" method="POST" style="display:inline;">
                                 @csrf
