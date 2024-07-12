@@ -22,7 +22,6 @@
                         <td><?php echo e($formaPago->id_pago); ?></td>
                         <td><?php echo e($formaPago->tipo); ?></td>
                         <td>
-                            <a href="<?php echo e(route('formas-pago.show', $formaPago->id_pago)); ?>" class="btn btn-info">Ver</a>
                             <a href="<?php echo e(route('formas-pago.edit', $formaPago->id_pago)); ?>" class="btn btn-warning">Editar</a>
                             <form action="<?php echo e(route('formas-pago.destroy', $formaPago->id_pago)); ?>" method="POST" style="display:inline;">
                                 <?php echo csrf_field(); ?>

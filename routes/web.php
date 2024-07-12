@@ -32,3 +32,7 @@ Route::resource('cotizaciones', CotizacionController::class);
 
 use App\Http\Controllers\VentaController;
 Route::resource('ventas', VentaController::class);
+
+use App\Http\Controllers\InventarioController;
+Route::resource('inventarios', InventarioController::class);
+

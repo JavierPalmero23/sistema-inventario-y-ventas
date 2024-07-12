@@ -15,7 +15,7 @@ class Venta extends Model
 
     public function vendedor()
     {
-        return $this->belongsTo(Vendedor::class, 'id_vendedor');
+        return $this->belongsTo(Vendedores::class, 'id_vendedor');
     }
 
     public function producto()
@@ -35,6 +35,6 @@ class Venta extends Model
 
     public function formaPago()
     {
-        return $this->belongsTo(FormaPago::class, 'id_pago');
+        return $this->belongsTo(FormasPago::class, 'id_pago');
     }
 }

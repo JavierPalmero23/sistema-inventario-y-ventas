@@ -22,7 +22,6 @@
                         <td>{{ $formaPago->id_pago }}</td>
                         <td>{{ $formaPago->tipo }}</td>
                         <td>
-                            <a href="{{ route('formas-pago.show', $formaPago->id_pago) }}" class="btn btn-info">Ver</a>
                             <a href="{{ route('formas-pago.edit', $formaPago->id_pago) }}" class="btn btn-warning">Editar</a>
                             <form action="{{ route('formas-pago.destroy', $formaPago->id_pago) }}" method="POST" style="display:inline;">
                                 @csrf

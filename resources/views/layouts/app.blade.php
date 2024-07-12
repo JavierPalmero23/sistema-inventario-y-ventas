@@ -39,13 +39,14 @@
         <nav class="sidebar">
             <h2 class="text-center">POS System</h2>
             <a href="{{ route('categorias.index') }}">Categorías</a>
-            <a href="{{ route('productos.index') }}">Productos</a>
             <a href="{{ route('clientes.index') }}">Clientes</a>
-            <a href="{{ route('proveedores.index') }}">Proveedores</a>
-            <a href="{{ route('formas-pago.index') }}">Formas de Pago</a>
-            <a href="{{ route('vendedores.index') }}">Vendedores</a>
             <a href="{{ route('compras.index') }}">Compras</a>
             <a href="{{ route('cotizaciones.index') }}">Cotizaciones</a>
+            <a href="{{ route('formas-pago.index') }}">Formas de Pago</a>
+            <a href="{{ route('inventarios.index') }}">Inventarios</a>
+            <a href="{{ route('productos.index') }}">Productos</a>
+            <a href="{{ route('proveedores.index') }}">Proveedores</a>
+            <a href="{{ route('vendedores.index') }}">Vendedores</a>
             <a href="{{ route('ventas.index') }}">Ventas</a>
         </nav>
         <div class="content">

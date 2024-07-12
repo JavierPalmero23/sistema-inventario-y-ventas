@@ -22,7 +22,6 @@
                         <td>{{ $categoria->id_cat }}</td>
                         <td>{{ $categoria->nombre }}</td>
                         <td>
-                            <a href="{{ route('categorias.show', $categoria->id_cat) }}" class="btn btn-info">Ver</a>
                             <a href="{{ route('categorias.edit', $categoria->id_cat) }}" class="btn btn-warning">Editar</a>
                             <form action="{{ route('categorias.destroy', $categoria->id_cat) }}" method="POST" style="display:inline;">
                                 @csrf

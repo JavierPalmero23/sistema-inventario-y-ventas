@@ -35,7 +35,7 @@ class VentaController extends Controller
             'id_producto' => 'required|exists:productos,id_producto',
             'id_cat' => 'required|exists:categorias,id_cat',
             'id_cliente' => 'required|exists:clientes,id_cliente',
-            'id_pago' => 'required|exists:formas_pago,id_pago',
+            'id_pago' => 'required|exists:formas_pagos,id_pago',
             'fecha_venta' => 'required|date',
             'cambio' => 'required|numeric',
             'subtotal' => 'required|numeric',

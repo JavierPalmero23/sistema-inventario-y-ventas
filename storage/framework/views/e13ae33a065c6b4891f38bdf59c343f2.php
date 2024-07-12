@@ -39,13 +39,14 @@
         <nav class="sidebar">
             <h2 class="text-center">POS System</h2>
             <a href="<?php echo e(route('categorias.index')); ?>">Categorías</a>
-            <a href="<?php echo e(route('productos.index')); ?>">Productos</a>
             <a href="<?php echo e(route('clientes.index')); ?>">Clientes</a>
-            <a href="<?php echo e(route('proveedores.index')); ?>">Proveedores</a>
-            <a href="<?php echo e(route('formas-pago.index')); ?>">Formas de Pago</a>
-            <a href="<?php echo e(route('vendedores.index')); ?>">Vendedores</a>
             <a href="<?php echo e(route('compras.index')); ?>">Compras</a>
             <a href="<?php echo e(route('cotizaciones.index')); ?>">Cotizaciones</a>
+            <a href="<?php echo e(route('formas-pago.index')); ?>">Formas de Pago</a>
+            <a href="<?php echo e(route('inventarios.index')); ?>">Inventarios</a>
+            <a href="<?php echo e(route('productos.index')); ?>">Productos</a>
+            <a href="<?php echo e(route('proveedores.index')); ?>">Proveedores</a>
+            <a href="<?php echo e(route('vendedores.index')); ?>">Vendedores</a>
             <a href="<?php echo e(route('ventas.index')); ?>">Ventas</a>
         </nav>
         <div class="content">
