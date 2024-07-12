@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Inventario;
 use App\Models\Producto;
 use App\Models\Categoria;
-use App\Models\Inventario;
 use Illuminate\Http\Request;
 
 class InventarioController extends Controller
@@ -37,7 +37,7 @@ class InventarioController extends Controller
         Inventario::create($request->all());
 
         return redirect()->route('inventarios.index')
-                         ->with('success', 'Inventario created successfully.');
+                         ->with('success', 'Inventario creado exitosamente.');
     }
 
     public function show(Inventario $inventario)
@@ -67,7 +67,7 @@ class InventarioController extends Controller
         $inventario->update($request->all());
 
         return redirect()->route('inventarios.index')
-                         ->with('success', 'Inventario updated successfully.');
+                         ->with('success', 'Inventario actualizado exitosamente.');
     }
 
     public function destroy(Inventario $inventario)
@@ -75,6 +75,6 @@ class InventarioController extends Controller
         $inventario->delete();
 
         return redirect()->route('inventarios.index')
-                         ->with('success', 'Inventario deleted successfully.');
+                         ->with('success', 'Inventario eliminado exitosamente.');
     }
 }

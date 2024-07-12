@@ -17,4 +17,9 @@ class Categoria extends Model
     {
         return $this->hasMany(Producto::class, 'id_cat');
     }
+
+    public function inventarios()
+    {
+        return $this->hasMany(Inventario::class, 'id_cat');
+    }
 }

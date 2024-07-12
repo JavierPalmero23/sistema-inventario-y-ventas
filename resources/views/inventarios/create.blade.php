@@ -1,45 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Create Inventario</h1>
+    <h1>Crear Inventario</h1>
     <form action="{{ route('inventarios.store') }}" method="POST">
         @csrf
         <div>
             <label>Producto:</label>
-            <select name="id_producto">
+            <select name="id_producto" class="form-control">
                 @foreach($productos as $producto)
-                    <option value="{{ $producto->id }}">{{ $producto->name }}</option>
+                    <option value="{{ $producto->id_producto }}">{{ $producto->nombre }}</option>
                 @endforeach
             </select>
         </div>
         <div>
-            <label>Categoria:</label>
-            <select name="id_cat">
+            <label>Categoría:</label>
+            <select name="id_cat" class="form-control">
                 @foreach($categorias as $categoria)
-                    <option value="{{ $categoria->id }}">{{ $categoria->name }}</option>
+                    <option value="{{ $categoria->id_cat }}">{{ $categoria->nombre }}</option>
                 @endforeach
             </select>
         </div>
         <div>
-            <label>Fecha Entrada:</label>
-            <input type="date" name="fecha_entrada">
+            <label>Fecha de Entrada:</label>
+            <input type="date" name="fecha_entrada" class="form-control">
         </div>
         <div>
-            <label>Fecha Salida:</label>
-            <input type="date" name="fecha_salida">
+            <label>Fecha de Salida:</label>
+            <input type="date" name="fecha_salida" class="form-control">
         </div>
         <div>
             <label>Movimiento:</label>
-            <input type="number" name="movimiento">
+            <input type="number" name="movimiento" class="form-control">
         </div>
         <div>
             <label>Motivo:</label>
-            <textarea name="motivo"></textarea>
+            <textarea name="motivo" class="form-control"></textarea>
         </div>
         <div>
             <label>Cantidad:</label>
-            <input type="number" name="cantidad">
+            <input type="number" name="cantidad" class="form-control">
         </div>
-        <button type="submit">Create</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 @endsection

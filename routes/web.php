@@ -36,3 +36,5 @@ Route::resource('ventas', VentaController::class);
 use App\Http\Controllers\InventarioController;
 Route::resource('inventarios', InventarioController::class);
 
+
+

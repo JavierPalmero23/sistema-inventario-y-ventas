@@ -23,3 +23,4 @@ class Inventario extends Model
         return $this->belongsTo(Categoria::class, 'id_cat');
     }
 }
+

@@ -1,46 +1,46 @@
 
 
 <?php $__env->startSection('content'); ?>
-    <h1>Create Inventario</h1>
+    <h1>Crear Inventario</h1>
     <form action="<?php echo e(route('inventarios.store')); ?>" method="POST">
         <?php echo csrf_field(); ?>
         <div>
             <label>Producto:</label>
-            <select name="id_producto">
+            <select name="id_producto" class="form-control">
                 <?php $__currentLoopData = $productos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $producto): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <option value="<?php echo e($producto->id); ?>"><?php echo e($producto->name); ?></option>
+                    <option value="<?php echo e($producto->id_producto); ?>"><?php echo e($producto->nombre); ?></option>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>
         </div>
         <div>
-            <label>Categoria:</label>
-            <select name="id_cat">
+            <label>Categoría:</label>
+            <select name="id_cat" class="form-control">
                 <?php $__currentLoopData = $categorias; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categoria): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <option value="<?php echo e($categoria->id); ?>"><?php echo e($categoria->name); ?></option>
+                    <option value="<?php echo e($categoria->id_cat); ?>"><?php echo e($categoria->nombre); ?></option>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>
         </div>
         <div>
-            <label>Fecha Entrada:</label>
-            <input type="date" name="fecha_entrada">
+            <label>Fecha de Entrada:</label>
+            <input type="date" name="fecha_entrada" class="form-control">
         </div>
         <div>
-            <label>Fecha Salida:</label>
-            <input type="date" name="fecha_salida">
+            <label>Fecha de Salida:</label>
+            <input type="date" name="fecha_salida" class="form-control">
         </div>
         <div>
             <label>Movimiento:</label>
-            <input type="number" name="movimiento">
+            <input type="number" name="movimiento" class="form-control">
         </div>
         <div>
             <label>Motivo:</label>
-            <textarea name="motivo"></textarea>
+            <textarea name="motivo" class="form-control"></textarea>
         </div>
         <div>
             <label>Cantidad:</label>
-            <input type="number" name="cantidad">
+            <input type="number" name="cantidad" class="form-control">
         </div>
-        <button type="submit">Create</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 <?php $__env->stopSection(); ?>
 

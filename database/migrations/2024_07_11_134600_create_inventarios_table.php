@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateInventariosTable extends Migration
 {
-    public function up(): void
+    public function up()
     {
         Schema::create('inventarios', function (Blueprint $table) {
             $table->id();
@@ -18,14 +18,12 @@ class CreateInventariosTable extends Migration
             $table->text('motivo')->nullable();
             $table->integer('cantidad');
             $table->timestamps();
-
-            // Agregar claves foráneas si es necesario
             $table->foreign('id_producto')->references('id_producto')->on('productos')->onDelete('cascade');
             $table->foreign('id_cat')->references('id_cat')->on('categorias')->onDelete('cascade');
         });
     }
 
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('inventarios');
     }

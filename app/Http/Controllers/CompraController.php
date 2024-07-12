@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Compra;
 use App\Models\Proveedores;
 use App\Models\Producto;
+use App\Models\Inventario;
 use Illuminate\Http\Request;
 
 class CompraController extends Controller
@@ -25,17 +26,47 @@ class CompraController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_proveedor' => 'required|exists:proveedores,id_proveedor',
-            'id_producto' => 'required|exists:productos,id_producto',
-            'cantidad' => 'required|integer',
-            'precio' => 'required|numeric',
+            'id_producto' => 'required',
+            'id_proveedor' => 'required',
+            'cantidad' => 'required|integer|min:1',
+            'precio' => 'required|numeric|min:0',
             'fecha_compra' => 'required|date',
-            'descuento' => 'nullable|numeric',
+            'descuento' => 'nullable|numeric|min:0|max:100',
         ]);
 
-        Compra::create($request->all());
+        $compra = Compra::create([
+            'id_producto' => $request->id_producto,
+            'id_proveedor' => $request->id_proveedor,
+            'cantidad' => $request->cantidad,
+            'precio' => $request->precio,
+            'fecha_compra' => $request->fecha_compra,
+            'descuento' => $request->descuento,
+        ]);
+
+        // Actualizar o crear
+        $inventario = Inventario::where('id_producto', $request->id_producto)->first();
+
+        if ($inventario) {
+            // Si existe, actualizar
+            $inventario->update([
+                'cantidad' => $inventario->cantidad + $request->cantidad,
+                'movimiento' => $inventario->movimiento + 1, // Puedes ajustar el tipo de movimiento según tus necesidades
+                // Añade otros campos que necesites actualizar en el inventario
+            ]);
+        } else {
+            
+            Inventario::create([
+                'id_producto' => $request->id_producto,
+                'id_cat' => Producto::find($request->id_producto)->id_cat,
+                'fecha_entrada' => now(),
+                'fecha_salida' => null,
+                'movimiento' => 1,
+                'cantidad' => $request->cantidad,
+            ]);
+        }
+
         return redirect()->route('compras.index')
-                         ->with('success', 'Compra creada con éxito.');
+                         ->with('success', 'Compra realizada exitosamente.');
     }
 
     public function show(Compra $compra)

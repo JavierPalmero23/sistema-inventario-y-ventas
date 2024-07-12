@@ -1,40 +1,42 @@
 
 
-<?php $__env->startSection('title', 'Inventario'); ?>
-
 <?php $__env->startSection('content'); ?>
     <h1>Inventarios</h1>
-    <a href="<?php echo e(route('inventarios.create')); ?>" class="btn btn-primary">Add New Inventario</a>
+
+    <a href="<?php echo e(route('inventarios.create')); ?>" class="btn btn-primary mb-2">Crear Inventario</a>
+
     <table class="table">
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Producto</th>
-                <th>Categoria</th>
+                <th>Categoría</th>
                 <th>Fecha Entrada</th>
                 <th>Fecha Salida</th>
                 <th>Movimiento</th>
                 <th>Motivo</th>
                 <th>Cantidad</th>
-                <th>Actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
             <?php $__currentLoopData = $inventarios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $inventario): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
-                    <td><?php echo e($inventario->producto->name); ?></td>
-                    <td><?php echo e($inventario->categoria->name); ?></td>
+                    <td><?php echo e($inventario->id); ?></td>
+                    <td><?php echo e($inventario->producto->nombre); ?></td>
+                    <td><?php echo e($inventario->categoria->nombre); ?></td>
                     <td><?php echo e($inventario->fecha_entrada); ?></td>
                     <td><?php echo e($inventario->fecha_salida); ?></td>
                     <td><?php echo e($inventario->movimiento); ?></td>
                     <td><?php echo e($inventario->motivo); ?></td>
                     <td><?php echo e($inventario->cantidad); ?></td>
                     <td>
-                        <a href="<?php echo e(route('inventarios.show', $inventario->id)); ?>" class="btn btn-info">Ver</a>
-                        <a href="<?php echo e(route('inventarios.edit', $inventario->id)); ?>"class="btn btn-warning">Editar</a>
-                        <form action="<?php echo e(route('inventarios.destroy', $inventario->id)); ?>" method="POST" style="display:inline;">
+                        <!--<a href="<?php echo e(route('inventarios.show', $inventario->id)); ?>" class="btn btn-info btn-sm">Ver</a>-->
+                        <a href="<?php echo e(route('inventarios.edit', $inventario->id)); ?>" class="btn btn-primary btn-sm">Editar</a>
+                        <form action="<?php echo e(route('inventarios.destroy', $inventario->id)); ?>" method="POST" style="display: inline-block;">
                             <?php echo csrf_field(); ?>
                             <?php echo method_field('DELETE'); ?>
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro?')">Eliminar</button>
                         </form>
                     </td>
                 </tr>
