@@ -1,7 +1,12 @@
+
 @extends('layouts.app')
 
+@section('title', 'Detalles Inventario')
+
 @section('content')
-    <h1>Inventario Details</h1>
+<div class="container">
+<br>
+    <h1>Detalle Inventario</h1>
     <p>Producto: {{ $inventario->producto->name }}</p>
     <p>Categoria: {{ $inventario->categoria->name }}</p>
     <p>Fecha Entrada: {{ $inventario->fecha_entrada }}</p>
@@ -16,4 +21,6 @@
         <button type="submit">Delete</button>
     </form>
     <a href="{{ route('inventarios.index') }}">Volver</a>
+    <br>
+</div>
 @endsection

@@ -1,4 +1,3 @@
-<!-- resources\views\ventas\show.blade.php -->
 
 @extends('layouts.app')
 
@@ -6,6 +5,7 @@
 
 @section('content')
     <div class="container">
+    <br>
         <h1>Detalle de Venta</h1>
         <div class="card">
             <div class="card-body">
@@ -23,5 +23,6 @@
                 <a href="{{ route('ventas.index') }}" class="btn btn-dark">Volver</a>
             </div>
         </div>
+        <br>
     </div>
 @endsection

@@ -1,4 +1,3 @@
-<!-- resources\views\ventas\index.blade.php -->
 
 @extends('layouts.app')
 
@@ -6,6 +5,7 @@
 
 @section('content')
     <div class="container">
+    <br>
         <h1>Ventas</h1>
         <a href="{{ route('ventas.create') }}" class="btn btn-primary">Crear Venta</a>
         <table class="table">
@@ -52,5 +52,6 @@
                 @endforeach
             </tbody>
         </table>
+        <br>
     </div>
 @endsection

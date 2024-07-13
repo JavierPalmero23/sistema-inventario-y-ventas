@@ -1,8 +1,9 @@
 
 
 <?php $__env->startSection('content'); ?>
+    <div class="container">
     <h1>Crear Cotización</h1>
-    <form action="<?php echo e(route('cotizaciones.store')); ?>" method="POST">
+    <form action="<?php echo e(route('cotizaciones.store')); ?>" method="POST" class="container">
         <?php echo csrf_field(); ?>
         <div>
             <label>Cliente:</label>
@@ -42,6 +43,7 @@
         <button type="submit" class="btn btn-primary">Guardar</button>
         <a href="<?php echo e(route('cotizaciones.index')); ?>" class="btn btn-dark">Volver</a>
     </form>
+</div>
 
     <script>
         let productIndex = 1;

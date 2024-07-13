@@ -1,11 +1,11 @@
-<!-- resources\views\ventas\edit.blade.php -->
 
- @extends('layouts.app')
+@extends('layouts.app')
 
 @section('title', 'Editar Venta')
 
 @section('content')
     <div class="container">
+    <br>
         <h1>Editar Venta</h1>
         <form action="{{ route('ventas.update', $venta->id) }}" method="POST">
             @csrf
@@ -72,5 +72,6 @@
             </div>
             <button type="submit" class="btn btn-primary">Actualizar</button>
         </form>
+        <br>
     </div>
 @endsection

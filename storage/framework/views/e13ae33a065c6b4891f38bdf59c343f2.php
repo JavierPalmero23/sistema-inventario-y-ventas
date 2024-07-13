@@ -1,7 +1,7 @@
-<!-- resources/views/layouts/app.blade.php -->
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,27 +13,39 @@
             display: flex;
             width: 100%;
         }
+
         .sidebar {
             width: 250px;
             height: 100vh;
             background: #343a40;
             color: #fff;
         }
+
         .sidebar a {
             color: #fff;
             padding: 15px;
             text-decoration: none;
             display: block;
         }
+
         .sidebar a:hover {
             background: #495057;
         }
+
         .content {
             flex: 1;
             padding: 20px;
+            background: #CECECE;
+        }
+
+        .container {
+            background: #FFFFFF;
+            border-radius: 25px;
+
         }
     </style>
 </head>
+
 <body>
     <div class="wrapper">
         <nav class="sidebar">
@@ -58,5 +70,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
 <?php /**PATH C:\Users\jp23\Downloads\poso\resources\views/layouts/app.blade.php ENDPATH**/ ?>

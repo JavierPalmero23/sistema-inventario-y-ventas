@@ -26,7 +26,7 @@
                 <input type="tel" name="telefono" class="form-control" id="telefono">
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
-            <a href="<?php echo e(route('proveedores.index')); ?>" class="btn btn-primary">Volver</a>
+            <a href="<?php echo e(route('proveedores.index')); ?>" class="btn btn-dark">Volver</a>
         </form>
     </div>
 <?php $__env->stopSection(); ?>

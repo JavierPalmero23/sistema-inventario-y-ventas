@@ -1,6 +1,11 @@
+
 @extends('layouts.app')
 
+@section('title', 'Crear Inventario')
+
 @section('content')
+<div class="container">
+<br>
     <h1>Crear Inventario</h1>
     <form action="{{ route('inventarios.store') }}" method="POST">
         @csrf
@@ -8,7 +13,7 @@
             <label>Producto:</label>
             <select name="id_producto" class="form-control">
                 @foreach($productos as $producto)
-                    <option value="{{ $producto->id_producto }}">{{ $producto->nombre }}</option>
+                <option value="{{ $producto->id_producto }}">{{ $producto->nombre }}</option>
                 @endforeach
             </select>
         </div>
@@ -16,7 +21,7 @@
             <label>Categoría:</label>
             <select name="id_cat" class="form-control">
                 @foreach($categorias as $categoria)
-                    <option value="{{ $categoria->id_cat }}">{{ $categoria->nombre }}</option>
+                <option value="{{ $categoria->id_cat }}">{{ $categoria->nombre }}</option>
                 @endforeach
             </select>
         </div>
@@ -43,4 +48,6 @@
         <button type="submit" class="btn btn-primary">Guardar</button>
         <a href="{{ route('inventarios.index') }}" class="btn btn-dark">Volver</a>
     </form>
+    <br>
+</div>
 @endsection

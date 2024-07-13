@@ -32,7 +32,7 @@
             </div>
             <div class="form-group">
                 <label for="fecha_compra">Fecha Compra</label>
-                <input type="date" name="fecha_compra" class="form-control" id="fecha_compra" value="<?php echo e($producto->fecha_compra); ?>" required>
+                <input type="date" name="fecha_compra" class="form-control" id="fecha_compra" value="<?php echo e($producto->fecha_compra); ?>" max="<?php echo e(date('Y-m-d')); ?>" required>
             </div>
             <div class="form-group">
                 <label for="colore">Color</label>

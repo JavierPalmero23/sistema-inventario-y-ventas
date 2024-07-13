@@ -1,6 +1,7 @@
 
 
 <?php $__env->startSection('content'); ?>
+<div class="container">
     <h1>Crear Inventario</h1>
     <form action="<?php echo e(route('inventarios.store')); ?>" method="POST">
         <?php echo csrf_field(); ?>
@@ -41,8 +42,9 @@
             <input type="number" name="cantidad" class="form-control">
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
-        <a href="<?php echo e(route('inventarios.index')); ?>" class="btn btn-primary">Volver</a>
+        <a href="<?php echo e(route('inventarios.index')); ?>" class="btn btn-dark">Volver</a>
     </form>
+</div>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\jp23\Downloads\poso\resources\views/inventarios/create.blade.php ENDPATH**/ ?>

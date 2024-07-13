@@ -1,4 +1,3 @@
-<!-- resources\views\ventas\index.blade.php -->
 
 
 
@@ -6,6 +5,7 @@
 
 <?php $__env->startSection('content'); ?>
     <div class="container">
+    <br>
         <h1>Ventas</h1>
         <a href="<?php echo e(route('ventas.create')); ?>" class="btn btn-primary">Crear Venta</a>
         <table class="table">
@@ -52,6 +52,7 @@
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
         </table>
+        <br>
     </div>
 <?php $__env->stopSection(); ?>
 

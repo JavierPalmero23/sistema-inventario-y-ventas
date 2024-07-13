@@ -20,7 +20,7 @@
                 <p class="card-text"><strong>Subtotal:</strong> <?php echo e($venta->subtotal); ?></p>
                 <p class="card-text"><strong>IVA:</strong> <?php echo e($venta->iva); ?></p>
                 <p class="card-text"><strong>Total:</strong> <?php echo e($venta->total); ?></p>
-                <a href="<?php echo e(route('ventas.index')); ?>" class="btn btn-primary">Volver</a>
+                <a href="<?php echo e(route('ventas.index')); ?>" class="btn btn-dark">Volver</a>
             </div>
         </div>
     </div>

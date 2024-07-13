@@ -1,14 +1,19 @@
+
 @extends('layouts.app')
 
+@section('title', 'Crear Cotizacion')
+
 @section('content')
+<div class="container">
+<br>
     <h1>Crear Cotización</h1>
-    <form action="{{ route('cotizaciones.store') }}" method="POST">
+    <form action="{{ route('cotizaciones.store') }}" method="POST" class="container">
         @csrf
         <div>
             <label>Cliente:</label>
             <select name="id_cliente" class="form-control">
                 @foreach($clientes as $cliente)
-                    <option value="{{ $cliente->id_cliente }}">{{ $cliente->nombre }}</option>
+                <option value="{{ $cliente->id_cliente }}">{{ $cliente->nombre }}</option>
                 @endforeach
             </select>
         </div>
@@ -30,7 +35,7 @@
                 <div class="producto">
                     <select name="productos[0][id_producto]" class="form-control">
                         @foreach($productos as $producto)
-                            <option value="{{ $producto->id_producto }}">{{ $producto->nombre }}</option>
+                        <option value="{{ $producto->id_producto }}">{{ $producto->nombre }}</option>
                         @endforeach
                     </select>
                     <input type="number" name="productos[0][cantidad]" placeholder="Cantidad" class="form-control">
@@ -42,14 +47,16 @@
         <button type="submit" class="btn btn-primary">Guardar</button>
         <a href="{{ route('cotizaciones.index') }}" class="btn btn-dark">Volver</a>
     </form>
+    <br>
+</div>
 
-    <script>
-        let productIndex = 1;
-        document.getElementById('addProduct').addEventListener('click', function() {
-            let productosDiv = document.getElementById('productos');
-            let newProductDiv = document.createElement('div');
-            newProductDiv.classList.add('producto');
-            newProductDiv.innerHTML = `
+<script>
+    let productIndex = 1;
+    document.getElementById('addProduct').addEventListener('click', function() {
+        let productosDiv = document.getElementById('productos');
+        let newProductDiv = document.createElement('div');
+        newProductDiv.classList.add('producto');
+        newProductDiv.innerHTML = `
                 <select name="productos[${productIndex}][id_producto]" class="form-control">
                     @foreach($productos as $producto)
                         <option value="{{ $producto->id_producto }}">{{ $producto->nombre }}</option>
@@ -58,9 +65,8 @@
                 <input type="number" name="productos[${productIndex}][cantidad]" placeholder="Cantidad" class="form-control">
                 <input type="number" name="productos[${productIndex}][precio]" placeholder="Precio" class="form-control">
             `;
-            productosDiv.appendChild(newProductDiv);
-            productIndex++;
-        });
-    </script>
+        productosDiv.appendChild(newProductDiv);
+        productIndex++;
+    });
+</script>
 @endsection
-
