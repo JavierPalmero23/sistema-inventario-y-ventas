@@ -2,7 +2,7 @@
 
 <?php $__env->startSection('content'); ?>
 <div class="container">
-<br>
+    <br>
     <h1>Crear Cliente</h1>
     <form action="<?php echo e(route('clientes.store')); ?>" method="POST">
         <?php echo csrf_field(); ?>
@@ -16,7 +16,7 @@
         </div>
         <div class="form-group">
             <label for="telefono">Teléfono</label>
-            <input type="tel" name="telefono" class="form-control" id="telefono">
+            <input type="number" name="telefono" class="form-control" id="telefono" step="0">
         </div>
         <div class="form-group">
             <label for="direccion">Dirección</label>
@@ -36,7 +36,7 @@
         </div>
         <div class="form-group">
             <label for="regimen_fiscal">Regimen Fiscal</label>
-        <select name="regimen_fiscal" id="regimen_fiscal" class="form-control">
+            <select name="regimen_fiscal" id="regimen_fiscal" class="form-control">
                 <option value="Actividad Empresarial">Actividad Empresarial</option>
                 <option value="Arrendamiento">Arrendamiento</option>
                 <option value="Asalariado" selected="selected">Asalariado</option>
@@ -44,7 +44,7 @@
                 <option value="Servicios Profesionales">Servicios Profesionales</option>
                 <option value="Sin Fines Licrativos">Sin Fines Licrativos</option>
                 <option value="Incorporacion Fiscal">Incorporacion Fiscal</option>
-        </select>
+            </select>
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
         <a href="<?php echo e(route('clientes.index')); ?>" class="btn btn-dark">Volver</a>
@@ -52,5 +52,4 @@
     <br>
 </div>
 <?php $__env->stopSection(); ?>
-
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\jp23\Desktop\poso\resources\views/clientes/create.blade.php ENDPATH**/ ?>
