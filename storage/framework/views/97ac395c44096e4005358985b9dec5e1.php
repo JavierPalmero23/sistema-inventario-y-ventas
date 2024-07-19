@@ -11,8 +11,6 @@
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Categoría</th>
-                <th>Precio Venta</th>
-                <th>Precio Compra</th>
                 <th>Fecha Compra</th>
                 <th>Acciones</th>
             </tr>
@@ -23,8 +21,6 @@
                 <td><?php echo e($producto->id_producto); ?></td>
                 <td><?php echo e($producto->nombre); ?></td>
                 <td><?php echo e($producto->categoria->nombre); ?></td>
-                <td><?php echo e($producto->pv); ?></td>
-                <td><?php echo e($producto->pc); ?></td>
                 <td><?php echo e($producto->fecha_compra); ?></td>
                 <td>
                     <!--aunno<a href="<?php echo e(route('productos.show', $producto->id_producto)); ?>" class="btn btn-info">Ver</a>-->

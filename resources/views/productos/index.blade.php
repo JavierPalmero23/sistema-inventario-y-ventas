@@ -14,8 +14,6 @@
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Categoría</th>
-                <th>Precio Venta</th>
-                <th>Precio Compra</th>
                 <th>Fecha Compra</th>
                 <th>Acciones</th>
             </tr>
