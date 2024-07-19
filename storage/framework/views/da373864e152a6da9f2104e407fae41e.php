@@ -19,8 +19,8 @@
                 <td><?php echo e($formaPago->id_pago); ?></td>
                 <td><?php echo e($formaPago->tipo); ?></td>
                 <td>
-                    <a href="<?php echo e(route('formas-pago.edit', $formaPago->id_pago)); ?>" class="btn btn-warning">Editar</a>
-                    <form action="<?php echo e(route('formas-pago.destroy', $formaPago->id_pago)); ?>" method="POST" style="display:inline;">
+                    <a href="<?php echo e(route('formas-pago.edit', $formaPago)); ?>" class="btn btn-warning">Editar</a>
+                    <form action="<?php echo e(route('formas-pago.destroy', $formaPago->id_pago, $formaPago->tipo)); ?>" method="POST" style="display:inline;">
                         <?php echo csrf_field(); ?>
                         <?php echo method_field('DELETE'); ?>
                         <button type="submit" class="btn btn-danger">Eliminar</button>

@@ -85,6 +85,10 @@
         <img src="{{ asset('images/people-network-partner.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
         Proveedores
     </a>
+    <a href="{{ route('reportes.ventas') }}">
+        <img src="{{ asset('images/people-network-partner.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
+        Reportes
+    </a>
     <a href="{{ route('vendedores.index') }}">
         <img src="{{ asset('images/seller.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
         Vendedores

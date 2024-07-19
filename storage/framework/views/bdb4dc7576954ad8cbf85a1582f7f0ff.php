@@ -85,6 +85,10 @@
         <img src="<?php echo e(asset('images/people-network-partner.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
         Proveedores
     </a>
+    <a href="<?php echo e(route('reportes.ventas')); ?>">
+        <img src="<?php echo e(asset('images/people-network-partner.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
+        Reportes
+    </a>
     <a href="<?php echo e(route('vendedores.index')); ?>">
         <img src="<?php echo e(asset('images/seller.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
         Vendedores
