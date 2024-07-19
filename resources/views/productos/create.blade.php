@@ -22,14 +22,6 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="pv">Precio Venta</label>
-            <input type="number" name="pv" class="form-control" id="pv" step="0.01" required>
-        </div>
-        <div class="form-group">
-            <label for="pc">Precio Compra</label>
-            <input type="number" name="pc" class="form-control" id="pc" step="0.01" required>
-        </div>
-        <div class="form-group">
             <label for="fecha_compra">Fecha Compra</label>
             <input type="date" name="fecha_compra" class="form-control" id="fecha_compra" max="{{ date('Y-m-d') }}" required>
         </div>

@@ -12,8 +12,6 @@ class CreateProductosTable extends Migration
             $table->id('id_producto');
             $table->string('nombre');
             $table->foreignId('id_cat')->constrained('categorias', 'id_cat');
-            $table->decimal('pv', 8, 2); // precio de venta
-            $table->decimal('pc', 8, 2); // precio de compra
             $table->date('fecha_compra');
             $table->string('colore');
             $table->string('descripcion_corta');

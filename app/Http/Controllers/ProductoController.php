@@ -25,8 +25,6 @@ class ProductoController extends Controller
         $request->validate([
             'nombre' => 'required',
             'id_cat' => 'required',
-            'pv' => 'required',
-            'pc' => 'required',
             'fecha_compra' => 'required',
             'colore' => 'required',
             'descripcion_corta' => 'required',
@@ -54,8 +52,6 @@ class ProductoController extends Controller
         $request->validate([
             'nombre' => 'required',
             'id_cat' => 'required',
-            'pv' => 'required',
-            'pc' => 'required',
             'fecha_compra' => 'required',
             'colore' => 'required',
             'descripcion_corta' => 'required',

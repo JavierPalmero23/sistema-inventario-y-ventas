@@ -12,7 +12,7 @@ class Producto extends Model
     protected $primaryKey = 'id_producto';
 
     protected $fillable = [
-        'nombre', 'id_cat', 'pv', 'pc', 'fecha_compra', 'colore',
+        'nombre', 'id_cat', 'fecha_compra', 'colore',
         'descripcion_corta', 'descripcion_larga'
     ];
 

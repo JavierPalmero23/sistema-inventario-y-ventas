@@ -26,8 +26,6 @@
                 <td>{{ $producto->id_producto }}</td>
                 <td>{{ $producto->nombre }}</td>
                 <td>{{ $producto->categoria->nombre }}</td>
-                <td>{{ $producto->pv }}</td>
-                <td>{{ $producto->pc }}</td>
                 <td>{{ $producto->fecha_compra }}</td>
                 <td>
                     <!--aunno<a href="{{ route('productos.show', $producto->id_producto) }}" class="btn btn-info">Ver</a>-->
