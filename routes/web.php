@@ -67,11 +67,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('inventarios', InventarioController::class);
 });
 
-use App\Http\Controllers\ReporteVentasController;
-Route::get('/reportes/ventas', [ReporteVentasController::class, 'index'])->name('reportes.ventas');
-Route::get('/reportes/ventas/pdf', [ReporteVentasController::class, 'downloadPDF'])->name('reportes.ventas.pdf');
+use App\Http\Controllers\ReporteController;
+Route::get('/reportes', [ReporteController::class, 'index'])->name('reportes.generar');
+Route::get('/reportes/pdf', [ReporteController::class, 'downloadPDF'])->name('reportes.generar.pdf');
 
-use App\Http\Controllers\ReporteComprasController;
-Route::get('/reportes/compras', [ReporteComprasController::class, 'index'])->name('reportes.compras');
-Route::get('/reportes/compras/pdf', [ReporteComprasController::class, 'downloadPDF'])->name('reportes.compras.pdf');
 

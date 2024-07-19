@@ -32,7 +32,7 @@
         </div>
         <div class="form-group">
             <label for="vigencia">Vigencia</label>
-            <input type="date" name="vigencia" class="form-control" id="vigencia" value="{{ $cotizacion->vigencia }}" required>
+            <input type="date" name="vigencia" class="form-control" id="vigencia" value="{{ $cotizacion->vigencia }}" min="{{ date('Y-m-d') }}" required>
         </div>
         <div class="form-group">
             <label for="comentarios">Comentarios</label>

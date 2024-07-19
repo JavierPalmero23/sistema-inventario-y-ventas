@@ -19,11 +19,11 @@
         </div>
         <div>
             <label>Fecha de Cotización:</label>
-            <input type="date" name="fecha_cot" class="form-control">
+            <input type="date" name="fecha_cot" max="{{ date('Y-m-d') }}" class="form-control">
         </div>
         <div>
             <label>Vigencia:</label>
-            <input type="date" name="vigencia" class="form-control">
+            <input type="date" name="vigencia" min="{{ date('Y-m-d') }}" class="form-control">
         </div>
         <div>
             <label>Comentarios:</label>

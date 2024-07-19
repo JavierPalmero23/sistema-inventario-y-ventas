@@ -28,11 +28,11 @@
         </div>
         <div>
             <label>Fecha Entrada:</label>
-            <input type="date" name="fecha_entrada" value="{{ $inventario->fecha_entrada }}" class="form-control">
+            <input type="date" name="fecha_entrada" value="{{ $inventario->fecha_entrada }}" max="{{ date('Y-m-d') }}" class="form-control">
         </div>
         <div>
             <label>Fecha Salida:</label>
-            <input type="date" name="fecha_salida" value="{{ $inventario->fecha_salida }}" class="form-control">
+            <input type="date" name="fecha_salida" value="{{ $inventario->fecha_salida }}" max="{{ date('Y-m-d') }}" class="form-control">
         </div>
         <div>
             <label>Movimiento:</label>

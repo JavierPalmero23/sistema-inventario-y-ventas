@@ -17,7 +17,7 @@
         </div>
         <div>
             <label>Fecha Venta:</label>
-            <input type="date" name="fecha_venta" class="form-control" value="{{ $venta->fecha_venta }}">
+            <input type="date" name="fecha_venta" class="form-control" value="{{ $venta->fecha_venta }}" max="{{ date('Y-m-d') }}">
         </div>
         <div>
             <label>Productos:</label>

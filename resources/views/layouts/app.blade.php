@@ -85,8 +85,8 @@
         <img src="{{ asset('images/people-network-partner.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
         Proveedores
     </a>
-    <a href="{{ route('reportes.ventas') }}">
-        <img src="{{ asset('images/people-network-partner.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
+    <a href="{{ route('reportes.generar') }}">
+        <img src="{{ asset('images/report.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
         Reportes
     </a>
     <a href="{{ route('vendedores.index') }}">
@@ -103,7 +103,7 @@
 
                     <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Log Out ') }}<img src="{{ asset('images/logout.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
                     </x-responsive-nav-link>
                 </form>
             </div>

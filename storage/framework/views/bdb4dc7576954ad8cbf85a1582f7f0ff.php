@@ -85,8 +85,8 @@
         <img src="<?php echo e(asset('images/people-network-partner.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
         Proveedores
     </a>
-    <a href="<?php echo e(route('reportes.ventas')); ?>">
-        <img src="<?php echo e(asset('images/people-network-partner.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
+    <a href="<?php echo e(route('reportes.generar')); ?>">
+        <img src="<?php echo e(asset('images/report.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
         Reportes
     </a>
     <a href="<?php echo e(route('vendedores.index')); ?>">
@@ -113,8 +113,7 @@
 <?php endif; ?>
 <?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('logout')),'onclick' => 'event.preventDefault();
                                         this.closest(\'form\').submit();']); ?>
-                        <?php echo e(__('Log Out')); ?>
-
+                        <?php echo e(__('Log Out ')); ?><img src="<?php echo e(asset('images/logout.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
                      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginald69b52d99510f1e7cd3d80070b28ca18)): ?>
