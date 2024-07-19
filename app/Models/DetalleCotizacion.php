@@ -10,12 +10,12 @@ class DetalleCotizacion extends Model
     use HasFactory;
 
     protected $fillable = [
-        'cotizacion_id', 'id_producto', 'cantidad', 'precio',
+        'id_cotizacion', 'id_producto', 'cantidad', 'precio',
     ];
 
     public function cotizacion()
     {
-        return $this->belongsTo(Cotizacione::class, 'cotizacion_id');
+        return $this->belongsTo(Cotizacione::class, 'id_cotizacion');
     }
 
     public function producto()

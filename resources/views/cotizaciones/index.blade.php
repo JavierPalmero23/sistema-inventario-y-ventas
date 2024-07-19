@@ -7,7 +7,7 @@
 <div class="container">
 <br>
     <h1>Lista de Cotizaciones</h1>
-    <a href="{{ route('cotizaciones.create') }}" class="btn btn-primary">Crear Compra</a>
+    <a href="{{ route('cotizaciones.create') }}" class="btn btn-primary">Crear Cotizacion</a>
     <table class="table">
         <thead>
             <tr>
@@ -28,7 +28,7 @@
                 <td>{{ $cotizacion->total }}</td>
                 <td>{{ $cotizacion->vigencia }}</td>
                 <td>
-                    <!--aunno<a href="{{ route('cotizaciones.show', $cotizacion->id) }}">Ver</a>-->
+                    <a href="{{ route('cotizaciones.show', $cotizacion->id) }}">Ver</a>
                     <a href="{{ route('cotizaciones.edit', $cotizacion->id) }}" class="btn btn-warning">Editar</a>
                     <form action="{{ route('cotizaciones.destroy', $cotizacion->id) }}" method="POST" style="display:inline;">
                         @csrf

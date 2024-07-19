@@ -4,7 +4,7 @@
 <div class="container">
 <br>
     <h1>Lista de Cotizaciones</h1>
-    <a href="<?php echo e(route('cotizaciones.create')); ?>" class="btn btn-primary">Crear Compra</a>
+    <a href="<?php echo e(route('cotizaciones.create')); ?>" class="btn btn-primary">Crear Cotizacion</a>
     <table class="table">
         <thead>
             <tr>
@@ -25,7 +25,7 @@
                 <td><?php echo e($cotizacion->total); ?></td>
                 <td><?php echo e($cotizacion->vigencia); ?></td>
                 <td>
-                    <!--aunno<a href="<?php echo e(route('cotizaciones.show', $cotizacion->id)); ?>">Ver</a>-->
+                    <a href="<?php echo e(route('cotizaciones.show', $cotizacion->id)); ?>">Ver</a>
                     <a href="<?php echo e(route('cotizaciones.edit', $cotizacion->id)); ?>" class="btn btn-warning">Editar</a>
                     <form action="<?php echo e(route('cotizaciones.destroy', $cotizacion->id)); ?>" method="POST" style="display:inline;">
                         <?php echo csrf_field(); ?>

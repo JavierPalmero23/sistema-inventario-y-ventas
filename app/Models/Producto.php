@@ -16,6 +16,16 @@ class Producto extends Model
         'descripcion_corta', 'descripcion_larga'
     ];
 
+    public function productos()
+    {
+        return $this->belongsToMany(Producto::class, 'venta_producto')->withPivot('cantidad', 'precio');
+    }
+
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class, 'cliente_id');
+    }
+    
     public function categoria()
     {
         return $this->belongsTo(Categoria::class, 'id_cat');
@@ -29,5 +39,12 @@ class Producto extends Model
     public function inventarios()
     {
         return $this->hasMany(Inventario::class, 'id_producto');
+    }
+
+    public function ventas()
+    {
+        return $this->belongsToMany(Venta::class, 'venta_producto')
+                    ->withPivot('cantidad', 'precio')
+                    ->withTimestamps();
     }
 }

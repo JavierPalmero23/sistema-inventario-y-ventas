@@ -1,28 +1,37 @@
-
 @extends('layouts.app')
 
-@section('title', 'Detalle de Venta')
-
 @section('content')
-    <div class="container">
-    <br>
-        <h1>Detalle de Venta</h1>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Venta ID: {{ $venta->id }}</h5>
-                <p class="card-text"><strong>Vendedor:</strong> {{ $venta->vendedor->nombre }}</p>
-                <p class="card-text"><strong>Producto:</strong> {{ $venta->producto->nombre }}</p>
-                <p class="card-text"><strong>Categoría:</strong> {{ $venta->categoria->nombre }}</p>
-                <p class="card-text"><strong>Cliente:</strong> {{ $venta->cliente->nombre }}</p>
-                <p class="card-text"><strong>Forma de Pago:</strong> {{ $venta->formaPago->tipo }}</p>
-                <p class="card-text"><strong>Fecha de Venta:</strong> {{ $venta->fecha_venta }}</p>
-                <p class="card-text"><strong>Cambio:</strong> {{ $venta->cambio }}</p>
-                <p class="card-text"><strong>Subtotal:</strong> {{ $venta->subtotal }}</p>
-                <p class="card-text"><strong>IVA:</strong> {{ $venta->iva }}</p>
-                <p class="card-text"><strong>Total:</strong> {{ $venta->total }}</p>
-                <a href="{{ route('ventas.index') }}" class="btn btn-dark">Volver</a>
-            </div>
-        </div>
-        <br>
-    </div>
+    <h1>Venta Details</h1>
+    <p><strong>ID:</strong> {{ $venta->id }}</p>
+    <p><strong>Cliente:</strong> {{ $venta->cliente->nombre }}</p>
+    <p><strong>Fecha Venta:</strong> {{ $venta->fecha_venta }}</p>
+    <p><strong>Total:</strong> {{ $venta->total }}</p>
+
+    <h3>Productos</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($venta->productos as $producto)
+                <tr>
+                    <td>{{ $producto->nombre }}</td>
+                    <td>{{ $producto->pivot->cantidad }}</td>
+                    <td>{{ $producto->pivot->precio }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+
+    <a href="{{ route('ventas.index') }}" class="btn btn-primary">Back to List</a>
+    <a href="{{ route('ventas.edit', $venta->id) }}" class="btn btn-warning">Edit</a>
+    <form action="{{ route('ventas.destroy', $venta->id) }}" method="POST" style="display:inline-block;">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
 @endsection

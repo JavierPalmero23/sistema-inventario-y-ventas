@@ -18,9 +18,11 @@ class Cotizacione extends Model
         return $this->hasMany(DetalleCotizacion::class);
     }
 
-    public function producto()
+    public function productos()
     {
-        return $this->belongsTo(Producto::class, 'id_producto');
+        return $this->belongsToMany(Producto::class, 'cotizacion_producto')
+                    ->withPivot('cantidad', 'precio')
+                    ->withTimestamps();
     }
 
     public function cliente()

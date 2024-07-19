@@ -15,4 +15,9 @@ class Cliente extends Model
         'nombre', 'correo', 'telefono', 'direccion', 'rfc',
         'razon_social', 'codigo_postal', 'regimen_fiscal'
     ];
+    
+    public function ventas()
+    {
+        return $this->hasMany(Venta::class);
+    }
 }
