@@ -36,7 +36,15 @@
         </div>
         <div class="form-group">
             <label for="regimen_fiscal">Regimen Fiscal</label>
-            <input type="text" name="regimen_fiscal" class="form-control" id="regimen_fiscal">
+        <select name="regimen_fiscal" id="regimen_fiscal" class="form-control">
+                <option value="Actividad Empresarial">Actividad Empresarial</option>
+                <option value="Arrendamiento">Arrendamiento</option>
+                <option value="Asalariado" selected="selected">Asalariado</option>
+                <option value="Intereses">Intereses</option>
+                <option value="Servicios Profesionales">Servicios Profesionales</option>
+                <option value="Sin Fines Licrativos">Sin Fines Licrativos</option>
+                <option value="Incorporacion Fiscal">Incorporacion Fiscal</option>
+        </select>
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
         <a href="<?php echo e(route('clientes.index')); ?>" class="btn btn-dark">Volver</a>

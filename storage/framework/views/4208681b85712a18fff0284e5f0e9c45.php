@@ -4,7 +4,7 @@
 <div class="container">
 <br>
     <h1>Editar Forma de Pago</h1>
-    <form action="<?php echo e(route('formas-pago.update', $formaPago->id_pago)); ?>" method="POST">
+    <form action="<?php echo e(route('formas-pago.update')); ?>" method="POST">
         <?php echo csrf_field(); ?>
         <?php echo method_field('PUT'); ?>
         <div class="form-group">
