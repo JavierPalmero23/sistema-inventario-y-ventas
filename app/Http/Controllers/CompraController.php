@@ -44,9 +44,17 @@ class CompraController extends Controller
         ]);
 
         // Actualizar o crear
-        $inventario = Inventario::where('id_producto', $request->id_producto)->first();
+        //$inventario = Inventario::where('id_producto', $request->id_producto)->first();
+        $producto = Producto::where('id_producto', $request->id_producto)->first();
 
-        if ($inventario) {
+        if ($producto) {
+            $producto->update([
+                'existencia' => $producto->existencia + $request->cantidad,
+                'fecha_compra' => $request->fecha_compra,
+            ]);
+        }
+
+        /*if ($inventario) {
             // Si existe, actualizar
             $inventario->update([
                 'cantidad' => $inventario->cantidad + $request->cantidad,
@@ -63,7 +71,7 @@ class CompraController extends Controller
                 'movimiento' => 1,
                 'cantidad' => $request->cantidad,
             ]);
-        }
+        }*/
 
         return redirect()->route('compras.index')
                          ->with('success', 'Compra realizada exitosamente.');
