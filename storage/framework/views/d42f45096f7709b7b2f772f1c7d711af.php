@@ -172,11 +172,11 @@ unset($__errorArgs, $__bag); ?>
 
             <div class="flex items-center justify-end mt-4">
                 <button type="submit" class="btn-primary ms-4">
-                    <?php echo e(__('Register')); ?>
+                    <?php echo e(__('Registrar')); ?>
 
                 </button>
                 <a href="<?php echo e(route('login')); ?>" class="form-links">
-                    <?php echo e(__('Ya Tienes Cuenta? Inicia Sesion!')); ?>
+                    <?php echo e(__('Inicia Sesion!')); ?>
 
                 </a>
             </div>

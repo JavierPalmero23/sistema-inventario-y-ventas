@@ -15,7 +15,7 @@
                 <th>Proveedor</th>
                 <th>Producto</th>
                 <th>Cantidad</th>
-                <th>Precio</th>
+                <th>Precio de Compra</th>
                 <th>Fecha de Compra</th>
                 <th>Descuento</th>
                 <th>Acciones</th>

@@ -33,6 +33,7 @@
             <label for="descripcion_corta">Descripción Corta</label>
             <input type="text" name="descripcion_corta" class="form-control" id="descripcion_corta" required>
         </div>
+        <input type="hidden" name="existencia" class="form-control" id="existencia" value="00" placeholder="00">
         <div class="form-group">
             <label for="descripcion_larga">Descripción Larga</label>
             <textarea name="descripcion_larga" class="form-control" id="descripcion_larga" required></textarea>

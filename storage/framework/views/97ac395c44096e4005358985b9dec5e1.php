@@ -10,6 +10,7 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
+                <th>Existencia</th>
                 <th>Categoría</th>
                 <th>Fecha Compra</th>
                 <th>Acciones</th>
@@ -20,6 +21,7 @@
             <tr>
                 <td><?php echo e($producto->id_producto); ?></td>
                 <td><?php echo e($producto->nombre); ?></td>
+                <td><?php echo e($producto->existencia); ?></td>
                 <td><?php echo e($producto->categoria->nombre); ?></td>
                 <td><?php echo e($producto->fecha_compra); ?></td>
                 <td>

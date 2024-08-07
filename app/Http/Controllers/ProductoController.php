@@ -27,6 +27,7 @@ class ProductoController extends Controller
             'id_cat' => 'required',
             'fecha_compra' => 'required',
             'colore' => 'required',
+            'existencia' => 'required',
             'descripcion_corta' => 'required',
             'descripcion_larga' => 'required',
         ]);
@@ -54,6 +55,7 @@ class ProductoController extends Controller
             'id_cat' => 'required',
             'fecha_compra' => 'required',
             'colore' => 'required',
+            'existencia' => 'required|integer',
             'descripcion_corta' => 'required',
             'descripcion_larga' => 'required',
         ]);

@@ -13,7 +13,7 @@
             <input type="date" id="hasta" name="hasta" value="{{ $hasta ?? '' }}" max="{{ date('Y-m-d') }}">
         </div>
         <button type="submit">Generar Reporte</button>
-        <a href="{{ route('reportes.compras.pdf', ['desde' => $desde, 'hasta' => $hasta]) }}">Descargar PDF</a>
+        <a href="{{ route('reportes.generar.pdf', ['desde' => $desde, 'hasta' => $hasta]) }}">Descargar PDF</a>
     </form>
 
     <table>

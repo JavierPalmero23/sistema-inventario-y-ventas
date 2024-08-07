@@ -15,6 +15,10 @@ class Producto extends Model
         'nombre', 'id_cat', 'fecha_compra', 'colore',
         'descripcion_corta', 'descripcion_larga'
     ];
+    
+    protected $attributes = [
+        'existencia' => 0,
+    ];
 
     public function productos()
     {

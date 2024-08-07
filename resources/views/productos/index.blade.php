@@ -13,6 +13,7 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
+                <th>Existencia</th>
                 <th>Categoría</th>
                 <th>Fecha Compra</th>
                 <th>Acciones</th>
@@ -23,6 +24,7 @@
             <tr>
                 <td>{{ $producto->id_producto }}</td>
                 <td>{{ $producto->nombre }}</td>
+                <td>{{ $producto->existencia }}</td>
                 <td>{{ $producto->categoria->nombre }}</td>
                 <td>{{ $producto->fecha_compra }}</td>
                 <td>

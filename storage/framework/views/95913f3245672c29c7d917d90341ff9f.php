@@ -27,7 +27,7 @@
             <input type="number" name="cantidad" class="form-control" id="cantidad" required>
         </div>
         <div class="form-group">
-            <label for="precio">Precio</label>
+            <label for="precio">Precio de Compra</label>
             <input type="number" step="0.01" name="precio" class="form-control" id="precio" required>
         </div>
         <div class="form-group">
