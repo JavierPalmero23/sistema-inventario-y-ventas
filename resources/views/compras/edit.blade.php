@@ -31,8 +31,8 @@
             <input type="number" name="cantidad" class="form-control" id="cantidad" value="{{ $compra->cantidad }}" required>
         </div>
         <div class="form-group">
-            <label for="precio">Precio de Compra</label>
-            <input type="number" step="0.01" name="precio" class="form-control" id="precio" value="{{ $compra->precio }}" required>
+            <label for="pv">Precio de Venta</label>
+            <input type="number" step="0.01" name="pv" class="form-control" id="pv" value="{{ $compra->pv }}" required>
         </div>
         <div class="form-group">
             <label for="fecha_compra">Fecha de Compra</label>

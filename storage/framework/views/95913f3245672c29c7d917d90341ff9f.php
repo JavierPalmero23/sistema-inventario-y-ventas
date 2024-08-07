@@ -27,8 +27,12 @@
             <input type="number" name="cantidad" class="form-control" id="cantidad" required>
         </div>
         <div class="form-group">
-            <label for="precio">Precio de Compra</label>
-            <input type="number" step="0.01" name="precio" class="form-control" id="precio" required>
+            <label for="pc">Precio de Compra</label>
+            <input type="number" step="0.01" name="pc" class="form-control" id="pc" required>
+        </div>
+        <div class="form-group">
+            <label for="pv">Precio de Venta</label>
+            <input type="number" step="0.01" name="pv" class="form-control" id="pv" required>
         </div>
         <div class="form-group">
             <label for="fecha_compra">Fecha de Compra</label>

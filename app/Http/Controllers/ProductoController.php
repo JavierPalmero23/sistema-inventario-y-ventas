@@ -28,8 +28,11 @@ class ProductoController extends Controller
             'fecha_compra' => 'required',
             'colore' => 'required',
             'existencia' => 'required',
+            'pc'=>'required',
+            'pv'=>'required',
             'descripcion_corta' => 'required',
-            'descripcion_larga' => 'required',
+            'descripcion_larga' => 'required'
+            //,'img'=>'required'
         ]);
 
         Producto::create($request->all());
@@ -56,6 +59,8 @@ class ProductoController extends Controller
             'fecha_compra' => 'required',
             'colore' => 'required',
             'existencia' => 'required|integer',
+            'pc'=>'required',
+            'pv'=>'required',
             'descripcion_corta' => 'required',
             'descripcion_larga' => 'required',
         ]);

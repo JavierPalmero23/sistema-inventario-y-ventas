@@ -15,8 +15,9 @@
                 <th>Proveedor</th>
                 <th>Producto</th>
                 <th>Cantidad</th>
-                <th>Precio de Compra</th>
-                <th>Fecha de Compra</th>
+                <th>Precio<br>Compra</th>
+                <th>Precio<br>Venta</th>
+                <th>Fecha<br>Compra</th>
                 <th>Descuento</th>
                 <th>Acciones</th>
             </tr>
@@ -28,7 +29,8 @@
                 <td>{{ $compra->proveedor->nombre }}</td>
                 <td>{{ $compra->producto->nombre }}</td>
                 <td>{{ $compra->cantidad }}</td>
-                <td>{{ $compra->precio }}</td>
+                <td>{{ $compra->pc }}</td>
+                <td>{{ $compra->pv }}</td>
                 <td>{{ $compra->fecha_compra }}</td>
                 <td>{{ $compra->descuento }}</td>
                 <td>

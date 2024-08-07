@@ -49,6 +49,8 @@ return new class extends Migration
             $table->date('fecha_compra');
             $table->string('colore');
             $table->string('existencia');
+            $table->decimal('pc', 8, 2);
+            $table->decimal('pv', 8, 2);
             $table->string('descripcion_corta');
             $table->text('descripcion_larga');
             $table->timestamps();
@@ -95,7 +97,8 @@ return new class extends Migration
             $table->unsignedBigInteger('id_proveedor');
             $table->unsignedBigInteger('id_producto');
             $table->integer('cantidad');
-            $table->decimal('precio', 8, 2);
+            $table->decimal('pc', 8, 2);
+            $table->decimal('pv', 8, 2);
             $table->date('fecha_compra');
             $table->decimal('descuento', 8, 2)->nullable();
             $table->timestamps();

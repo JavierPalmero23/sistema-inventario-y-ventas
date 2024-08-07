@@ -12,8 +12,9 @@
                 <th>Proveedor</th>
                 <th>Producto</th>
                 <th>Cantidad</th>
-                <th>Precio de Compra</th>
-                <th>Fecha de Compra</th>
+                <th>Precio<br>Compra</th>
+                <th>Precio<br>Venta</th>
+                <th>Fecha<br>Compra</th>
                 <th>Descuento</th>
                 <th>Acciones</th>
             </tr>
@@ -25,7 +26,8 @@
                 <td><?php echo e($compra->proveedor->nombre); ?></td>
                 <td><?php echo e($compra->producto->nombre); ?></td>
                 <td><?php echo e($compra->cantidad); ?></td>
-                <td><?php echo e($compra->precio); ?></td>
+                <td><?php echo e($compra->pc); ?></td>
+                <td><?php echo e($compra->pv); ?></td>
                 <td><?php echo e($compra->fecha_compra); ?></td>
                 <td><?php echo e($compra->descuento); ?></td>
                 <td>

@@ -35,6 +35,11 @@
             <input type="text" name="descripcion_corta" class="form-control" id="descripcion_corta" value="{{ $producto->descripcion_corta }}" required>
         </div>
         <input type="hidden" name="existencia" class="form-control" id="existencia" value="{{ $producto->existencia }}">
+        <input type="hidden" name="pc" class="form-control" id="pc" value="{{ $producto->pc }}">
+        <div class="form-group">
+            <label for="descripcion_corta">Precio de Venta</label>
+            <input type="number" name="pv" class="form-control" id="pv" value="{{ $producto->pv }}" required>
+        </div>
         <div class="form-group">
             <label for="descripcion_larga">Descripción Larga</label>
             <textarea name="descripcion_larga" class="form-control" id="descripcion_larga" required>{{ $producto->descripcion_larga }}</textarea>

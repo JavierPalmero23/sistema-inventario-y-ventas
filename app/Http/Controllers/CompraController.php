@@ -29,7 +29,8 @@ class CompraController extends Controller
             'id_producto' => 'required',
             'id_proveedor' => 'required',
             'cantidad' => 'required|integer|min:1',
-            'precio' => 'required|numeric|min:0',
+            'pc' => 'required|numeric|min:0',
+            'pv' => 'required|numeric|min:0',
             'fecha_compra' => 'required|date',
             'descuento' => 'nullable|numeric|min:0|max:100',
         ]);
@@ -38,7 +39,8 @@ class CompraController extends Controller
             'id_producto' => $request->id_producto,
             'id_proveedor' => $request->id_proveedor,
             'cantidad' => $request->cantidad,
-            'precio' => $request->precio,
+            'pc' => $request->pc,
+            'pv' => $request->pv,
             'fecha_compra' => $request->fecha_compra,
             'descuento' => $request->descuento,
         ]);
@@ -51,6 +53,8 @@ class CompraController extends Controller
             $producto->update([
                 'existencia' => $producto->existencia + $request->cantidad,
                 'fecha_compra' => $request->fecha_compra,
+                'pc' => $request->pc,
+                'pv' => $request->pv,
             ]);
         }
 
@@ -95,7 +99,8 @@ class CompraController extends Controller
             'id_proveedor' => 'required|exists:proveedores,id_proveedor',
             'id_producto' => 'required|exists:productos,id_producto',
             'cantidad' => 'required|integer',
-            'precio' => 'required|numeric',
+            'pc' => 'required|numeric',
+            'pv' => 'required|numeric',
             'fecha_compra' => 'required|date',
             'descuento' => 'nullable|numeric',
         ]);

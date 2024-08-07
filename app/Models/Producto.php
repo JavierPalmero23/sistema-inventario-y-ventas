@@ -12,12 +12,12 @@ class Producto extends Model
     protected $primaryKey = 'id_producto';
 
     protected $fillable = [
-        'nombre', 'id_cat', 'fecha_compra', 'colore', 'existencia',
+        'nombre', 'id_cat', 'fecha_compra', 'colore', 'existencia', 'pc', 'pv',
         'descripcion_corta', 'descripcion_larga'
     ];
     
     protected $attributes = [
-        'existencia' => 0,
+        'existencia' => 0, 'pc'=>0, 'pv'=>0,
     ];
 
     public function productos()
