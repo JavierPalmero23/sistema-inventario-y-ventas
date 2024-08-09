@@ -7,6 +7,7 @@ use App\Models\Proveedores;
 use App\Models\Producto;
 use App\Models\Inventario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CompraController extends Controller
 {
@@ -26,56 +27,59 @@ class CompraController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_producto' => 'required',
-            'id_proveedor' => 'required',
-            'cantidad' => 'required|integer|min:1',
-            'pc' => 'required|numeric|min:0',
-            'pv' => 'required|numeric|min:0',
+            'id_proveedor' => 'required|exists:proveedores,id_proveedor',
+            'productos' => 'required|array',
+            'productos.*.id_producto' => 'required|exists:productos,id_producto',
+            'productos.*.cantidad' => 'required|integer|min:1',
+            'productos.*.pc' => 'required|numeric|min:0',
+            'productos.*.pv' => 'required|numeric|min:0',
             'fecha_compra' => 'required|date',
             'descuento' => 'nullable|numeric|min:0|max:100',
         ]);
 
-        $compra = Compra::create([
-            'id_producto' => $request->id_producto,
-            'id_proveedor' => $request->id_proveedor,
-            'cantidad' => $request->cantidad,
-            'pc' => $request->pc,
-            'pv' => $request->pv,
-            'fecha_compra' => $request->fecha_compra,
-            'descuento' => $request->descuento,
-        ]);
+        DB::transaction(function () use ($request) {
+            foreach ($request->productos as $productoData) {
+                // crear registro de compra
+                Compra::create([
+                    'id_proveedor' => $request->id_proveedor,
+                    'id_producto' => $productoData['id_producto'],
+                    'cantidad' => $productoData['cantidad'],
+                    'pc' => $productoData['pc'],
+                    'pv' => $productoData['pv'],
+                    'fecha_compra' => $request->fecha_compra,
+                    'descuento' => $request->descuento,
+                ]);
 
-        // Actualizar o crear
-        //$inventario = Inventario::where('id_producto', $request->id_producto)->first();
-        $producto = Producto::where('id_producto', $request->id_producto)->first();
+                // actualizar producto
+                $producto = Producto::where('id_producto', $productoData['id_producto'])->first();
+                if ($producto) {
+                    $producto->update([
+                        'existencia' => $producto->existencia + $productoData['cantidad'],
+                        'fecha_compra' => $request->fecha_compra,
+                        'pc' => $productoData['pc'],
+                        'pv' => $productoData['pv'],
+                    ]);
+                }
 
-        if ($producto) {
-            $producto->update([
-                'existencia' => $producto->existencia + $request->cantidad,
-                'fecha_compra' => $request->fecha_compra,
-                'pc' => $request->pc,
-                'pv' => $request->pv,
-            ]);
-        }
-
-        /*if ($inventario) {
-            // Si existe, actualizar
-            $inventario->update([
-                'cantidad' => $inventario->cantidad + $request->cantidad,
-                'movimiento' => $inventario->movimiento + 1, // Puedes ajustar el tipo de movimiento según tus necesidades
-                // Añade otros campos que necesites actualizar en el inventario
-            ]);
-        } else {
-            
-            Inventario::create([
-                'id_producto' => $request->id_producto,
-                'id_cat' => Producto::find($request->id_producto)->id_cat,
-                'fecha_entrada' => now(),
-                'fecha_salida' => null,
-                'movimiento' => 1,
-                'cantidad' => $request->cantidad,
-            ]);
-        }*/
+                // actuaklizr inventario
+                $inventario = Inventario::where('id_producto', $productoData['id_producto'])->first();
+                if ($inventario) {
+                    $inventario->update([
+                        'cantidad' => $inventario->cantidad + $productoData['cantidad'],
+                        'movimiento' => $inventario->movimiento + 1,
+                    ]);
+                } else {
+                    Inventario::create([
+                        'id_producto' => $productoData['id_producto'],
+                        'id_cat' => Producto::find($productoData['id_producto'])->id_cat,
+                        'fecha_entrada' => now(),
+                        'fecha_salida' => null,
+                        'movimiento' => 1,
+                        'cantidad' => $productoData['cantidad'],
+                    ]);
+                }
+            }
+        });
 
         return redirect()->route('compras.index')
                          ->with('success', 'Compra realizada exitosamente.');
@@ -97,15 +101,56 @@ class CompraController extends Controller
     {
         $request->validate([
             'id_proveedor' => 'required|exists:proveedores,id_proveedor',
-            'id_producto' => 'required|exists:productos,id_producto',
-            'cantidad' => 'required|integer',
-            'pc' => 'required|numeric',
-            'pv' => 'required|numeric',
+            'productos' => 'required|array',
+            'productos.*.id_producto' => 'required|exists:productos,id_producto',
+            'productos.*.cantidad' => 'required|integer|min:1',
+            'productos.*.pc' => 'required|numeric|min:0',
+            'productos.*.pv' => 'required|numeric|min:0',
             'fecha_compra' => 'required|date',
-            'descuento' => 'nullable|numeric',
+            'descuento' => 'nullable|numeric|min:0|max:100',
         ]);
 
-        $compra->update($request->all());
+        DB::transaction(function () use ($request, $compra) {
+            foreach ($request->productos as $productoData) {
+                $compra->update([
+                    'id_proveedor' => $request->id_proveedor,
+                    'id_producto' => $productoData['id_producto'],
+                    'cantidad' => $productoData['cantidad'],
+                    'pc' => $productoData['pc'],
+                    'pv' => $productoData['pv'],
+                    'fecha_compra' => $request->fecha_compra,
+                    'descuento' => $request->descuento,
+                ]);
+
+                $producto = Producto::where('id_producto', $productoData['id_producto'])->first();
+                if ($producto) {
+                    $producto->update([
+                        'existencia' => $producto->existencia + $productoData['cantidad'],
+                        'fecha_compra' => $request->fecha_compra,
+                        'pc' => $productoData['pc'],
+                        'pv' => $productoData['pv'],
+                    ]);
+                }
+
+                $inventario = Inventario::where('id_producto', $productoData['id_producto'])->first();
+                if ($inventario) {
+                    $inventario->update([
+                        'cantidad' => $inventario->cantidad + $productoData['cantidad'],
+                        'movimiento' => $inventario->movimiento + 1,
+                    ]);
+                } else {
+                    Inventario::create([
+                        'id_producto' => $productoData['id_producto'],
+                        'id_cat' => Producto::find($productoData['id_producto'])->id_cat,
+                        'fecha_entrada' => now(),
+                        'fecha_salida' => null,
+                        'movimiento' => 1,
+                        'cantidad' => $productoData['cantidad'],
+                    ]);
+                }
+            }
+        });
+
         return redirect()->route('compras.index')
                          ->with('success', 'Compra actualizada con éxito.');
     }
