@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Venta;
 use App\Models\Cliente;
 use App\Models\Producto;
-use App\Models\Inventario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -47,13 +46,13 @@ class VentaController extends Controller
                 $producto = Producto::find($productoData['id_producto']);
                 $cantidad = $productoData['cantidad'];
 
-                $inventario = Inventario::where('id_producto', $producto->id_producto)->first();
-                if ($inventario->cantidad < $cantidad) {
+                if ($producto->existencia < $cantidad) {
                     throw new \Exception("Cantidad insuficiente para el producto: {$producto->nombre}");
                 }
 
-                $inventario->cantidad -= $cantidad;
-                $inventario->save();
+                // Reduce the quantity from the producto
+                $producto->existencia -= $cantidad;
+                $producto->save();
 
                 $precio = $productoData['precio'];
                 $total += $precio * $cantidad;
@@ -102,21 +101,25 @@ class VentaController extends Controller
                 }, 0),
             ]);
 
+            // Detach existing products
             $venta->productos()->detach();
 
-            foreach ($request->productos as $producto) {
-                $venta->productos()->attach($producto['id_producto'], [
-                    'cantidad' => $producto['cantidad'],
-                    'precio' => $producto['precio'],
-                ]);
+            foreach ($request->productos as $productoData) {
+                $producto = Producto::find($productoData['id_producto']);
+                $cantidad = $productoData['cantidad'];
 
-                $inventario = Inventario::where('id_producto', $producto['id_producto'])->first();
-                if ($inventario && $inventario->cantidad >= $producto['cantidad']) {
-                    $inventario->cantidad -= $producto['cantidad'];
-                    $inventario->save();
-                } else {
-                    throw new \Exception('Cantidad insuficiente en inventario para el producto ID: ' . $producto['id_producto']);
+                if ($producto->existencia < $cantidad) {
+                    throw new \Exception("Cantidad insuficiente para el producto: {$producto->nombre}");
                 }
+
+                // Reduce the quantity from the producto
+                $producto->existencia -= $cantidad;
+                $producto->save();
+
+                $venta->productos()->attach($producto->id_producto, [
+                    'cantidad' => $cantidad,
+                    'precio' => $productoData['precio'],
+                ]);
             }
         });
 
@@ -127,10 +130,10 @@ class VentaController extends Controller
     {
         DB::transaction(function () use ($venta) {
             foreach ($venta->productos as $producto) {
-                $inventario = Inventario::where('id_producto', $producto->id_producto)->first();
-                if ($inventario) {
-                    $inventario->cantidad += $producto->pivot->cantidad;
-                    $inventario->save();
+                $productoModel = Producto::find($producto->id_producto);
+                if ($productoModel) {
+                    $productoModel->existencia += $producto->pivot->cantidad;
+                    $productoModel->save();
                 }
             }
 

@@ -11,7 +11,7 @@
             <label for="id_proveedor">Proveedor</label>
             <select name="id_proveedor" id="id_proveedor" class="form-control" required>
                 <?php $__currentLoopData = $proveedores; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $proveedor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <option value="<?php echo e($proveedor->id_proveedor); ?>"><?php echo e($proveedor->nombre); ?></option>
+                <option value="<?php echo e($proveedor->id_proveedor); ?>"><?php echo e($proveedor->nombre); ?></option>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>
         </div>
@@ -23,7 +23,7 @@
                     <label for="producto_1">Producto</label>
                     <select name="productos[0][id_producto]" id="producto_1" class="form-control" required>
                         <?php $__currentLoopData = $productos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $producto): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option value="<?php echo e($producto->id_producto); ?>"><?php echo e($producto->nombre); ?></option>
+                        <option value="<?php echo e($producto->id_producto); ?>"><?php echo e($producto->nombre); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                 </div>
@@ -64,7 +64,7 @@
 <script>
     let productoIndex = 1;
 
-    document.getElementById('add-product').addEventListener('click', function () {
+    document.getElementById('add-product').addEventListener('click', function() {
         productoIndex++;
         const container = document.getElementById('productos-container');
         const newProduct = document.createElement('div');
@@ -95,5 +95,4 @@
     });
 </script>
 <?php $__env->stopSection(); ?>
-
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\jp23\Desktop\poso\resources\views/compras/create.blade.php ENDPATH**/ ?>
