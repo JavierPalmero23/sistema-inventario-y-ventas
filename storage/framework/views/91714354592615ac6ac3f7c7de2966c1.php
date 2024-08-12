@@ -5,8 +5,8 @@
     <p><strong>ID:</strong> <?php echo e($venta->id); ?></p>
     <p><strong>Cliente:</strong> <?php echo e($venta->cliente->nombre); ?></p>
     <p><strong>Fecha Venta:</strong> <?php echo e($venta->fecha_venta); ?></p>
-    <p><strong>Neto:</strong> <?php echo e($venta->total); ?></p>
-    <p><strong>Total:</strong> <?php echo e($venta->total*1.16); ?></p>
+    <p><strong>Neto(sin IVA):</strong> $<?php echo e($venta->total); ?></p>
+    <p><strong>Total:</strong> $<?php echo e($venta->total*1.16); ?></p>
 
     <h3>Productos</h3>
     <table class="table">

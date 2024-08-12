@@ -7,8 +7,8 @@
     <p><strong>ID:</strong> {{ $venta->id }}</p>
     <p><strong>Cliente:</strong> {{ $venta->cliente->nombre }}</p>
     <p><strong>Fecha Venta:</strong> {{ $venta->fecha_venta }}</p>
-    <p><strong>Neto:</strong> {{ $venta->total }}</p>
-    <p><strong>Total:</strong> {{ $venta->total*1.16 }}</p>
+    <p><strong>Neto(sin IVA):</strong> ${{ $venta->total }}</p>
+    <p><strong>Total:</strong> ${{ $venta->total*1.16 }}</p>
 
     <h3>Productos</h3>
     <table class="table">

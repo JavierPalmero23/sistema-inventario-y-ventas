@@ -72,3 +72,4 @@ Route::get('/reportes', [ReporteController::class, 'index'])->name('reportes.gen
 Route::get('/reportes/pdf', [ReporteController::class, 'downloadPDF'])->name('reportes.generar.pdf');
 
 
+
