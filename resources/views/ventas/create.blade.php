@@ -22,13 +22,13 @@
             <label>Productos:</label>
             <div id="productos-container">
                 <div class="producto">
-                    <select name="productos[0][id]" class="form-control">
+                    <select name="productos[0][id_producto]" class="form-control">
                         @foreach($productos as $producto)
                         <option value="{{ $producto->id_producto }}">{{ $producto->nombre }}</option>
-                        @endforeach
+                         @endforeach
                     </select>
                     <input type="number" name="productos[0][cantidad]" class="form-control" placeholder="Cantidad">
-                    <input type="number" name="productos[0][precio]" class="form-control" placeholder="Precio">
+                    <input type="number" name="productos[0][precio]" class="form-control" placeholder="Precio" value="{{ $producto->pv }}" readonly>
                 </div>
             </div>
             <button type="button" onclick="addProducto()" class="btn btn-secondary">Add Producto</button>
@@ -44,7 +44,7 @@
             const newProducto = document.createElement('div');
             newProducto.classList.add('producto');
             newProducto.innerHTML = `
-                <select name="productos[${productoIndex}][id]" class="form-control">
+                <select name="productos[${productoIndex}][id_producto]" class="form-control">
                     @foreach($productos as $producto)
                         <option value="{{ $producto->id_producto }}">{{ $producto->nombre }}</option>
                     @endforeach

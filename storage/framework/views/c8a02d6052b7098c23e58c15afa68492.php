@@ -20,13 +20,13 @@
             <label>Productos:</label>
             <div id="productos-container">
                 <div class="producto">
-                    <select name="productos[0][id]" class="form-control">
+                    <select name="productos[0][id_producto]" class="form-control">
                         <?php $__currentLoopData = $productos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $producto): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <option value="<?php echo e($producto->id_producto); ?>"><?php echo e($producto->nombre); ?></option>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                     <input type="number" name="productos[0][cantidad]" class="form-control" placeholder="Cantidad">
-                    <input type="number" name="productos[0][precio]" class="form-control" placeholder="Precio">
+                    <input type="number" name="productos[0][precio]" class="form-control" placeholder="Precio" value="<?php echo e($producto->pv); ?>" readonly>
                 </div>
             </div>
             <button type="button" onclick="addProducto()" class="btn btn-secondary">Add Producto</button>
@@ -42,7 +42,7 @@
             const newProducto = document.createElement('div');
             newProducto.classList.add('producto');
             newProducto.innerHTML = `
-                <select name="productos[${productoIndex}][id]" class="form-control">
+                <select name="productos[${productoIndex}][id_producto]" class="form-control">
                     <?php $__currentLoopData = $productos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $producto): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <option value="<?php echo e($producto->id_producto); ?>"><?php echo e($producto->nombre); ?></option>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

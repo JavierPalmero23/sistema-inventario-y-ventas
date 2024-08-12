@@ -15,15 +15,17 @@ class Venta extends Model
         'total',
     ];
 
+
     public function cliente()
     {
         return $this->belongsTo(Cliente::class, 'id_cliente');
     }
 
     public function productos()
-    {
-        return $this->belongsToMany(Producto::class, 'venta_producto')
-                    ->withPivot('cantidad', 'precio')
-                    ->withTimestamps();
-    }
+{
+    return $this->belongsToMany(Producto::class, 'venta_producto', 'id_venta', 'id_producto')
+                ->withPivot('cantidad', 'precio')
+                ->withTimestamps();
+}
+
 }
