@@ -14,7 +14,7 @@
         </div>
         <div>
             <label>Fecha Venta:</label>
-            <input type="date" name="fecha_venta" class="form-control" max="<?php echo e(date('Y-m-d')); ?>">
+            <input type="date" name="fecha_venta" class="form-control" max="<?php echo e(date('Y-m-d')); ?>" value="<?php echo e(date('Y-m-d')); ?>" required>
         </div>
         <div>
             <label>Productos:</label>
@@ -25,13 +25,15 @@
                         <option value="<?php echo e($producto->id_producto); ?>"><?php echo e($producto->nombre); ?></option>
                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
-                    <input type="number" name="productos[0][cantidad]" class="form-control" placeholder="Cantidad">
+                    <input type="number" name="productos[0][cantidad]" class="form-control" placeholder="Cantidad" min="0" max="<?php echo e($producto->existencia); ?>" required>
                     <input type="number" name="productos[0][precio]" class="form-control" placeholder="Precio" value="<?php echo e($producto->pv); ?>" readonly>
                 </div>
             </div>
-            <button type="button" onclick="addProducto()" class="btn btn-secondary">Add Producto</button>
+            <button type="button" onclick="addProducto()" class="btn btn-secondary">Agregar Producto</button>
         </div>
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <br>
+        <a href="<?php echo e(route('ventas.index')); ?>" class="btn btn-secondary">Volver</a>
+        <button type="submit" class="btn btn-primary">Vender</button>
     </form>
 
     <script>

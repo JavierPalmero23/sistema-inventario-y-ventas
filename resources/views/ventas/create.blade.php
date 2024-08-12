@@ -16,7 +16,7 @@
         </div>
         <div>
             <label>Fecha Venta:</label>
-            <input type="date" name="fecha_venta" class="form-control" max="{{ date('Y-m-d') }}">
+            <input type="date" name="fecha_venta" class="form-control" max="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}" required>
         </div>
         <div>
             <label>Productos:</label>
@@ -27,13 +27,15 @@
                         <option value="{{ $producto->id_producto }}">{{ $producto->nombre }}</option>
                          @endforeach
                     </select>
-                    <input type="number" name="productos[0][cantidad]" class="form-control" placeholder="Cantidad">
+                    <input type="number" name="productos[0][cantidad]" class="form-control" placeholder="Cantidad" min="0" max="{{ $producto->existencia }}" required>
                     <input type="number" name="productos[0][precio]" class="form-control" placeholder="Precio" value="{{ $producto->pv }}" readonly>
                 </div>
             </div>
-            <button type="button" onclick="addProducto()" class="btn btn-secondary">Add Producto</button>
+            <button type="button" onclick="addProducto()" class="btn btn-secondary">Agregar Producto</button>
         </div>
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <br>
+        <a href="{{ route('ventas.index') }}" class="btn btn-secondary">Volver</a>
+        <button type="submit" class="btn btn-primary">Vender</button>
     </form>
 
     <script>
