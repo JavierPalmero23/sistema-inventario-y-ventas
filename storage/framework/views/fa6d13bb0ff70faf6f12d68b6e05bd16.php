@@ -21,10 +21,10 @@
                     <td><?php echo e($venta->id); ?></td>
                     <td><?php echo e($venta->cliente->nombre); ?></td>
                     <td><?php echo e($venta->fecha_venta); ?></td>
-                    <td><?php echo e($venta->total); ?></td>
+                    <td>$<?php echo e($venta->total*1.16*100/100); ?></td>
                     <td>
                         <a href="<?php echo e(route('ventas.show', $venta->id)); ?>" class="btn btn-info">Ver</a>
-                        <a href="<?php echo e(route('ventas.edit', $venta->id)); ?>" class="btn btn-warning">Editar</a>
+                        <!--<a href="<?php echo e(route('ventas.edit', $venta->id)); ?>" class="btn btn-warning">Editar</a>-->
                         <form action="<?php echo e(route('ventas.destroy', $venta->id)); ?>" method="POST" style="display:inline-block;">
                             <?php echo csrf_field(); ?>
                             <?php echo method_field('DELETE'); ?>

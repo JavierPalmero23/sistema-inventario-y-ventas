@@ -24,10 +24,10 @@
                     <td>{{ $venta->id }}</td>
                     <td>{{ $venta->cliente->nombre }}</td>
                     <td>{{ $venta->fecha_venta }}</td>
-                    <td>{{ $venta->total }}</td>
+                    <td>${{ $venta->total*1.16 }}</td>
                     <td>
                         <a href="{{ route('ventas.show', $venta->id) }}" class="btn btn-info">Ver</a>
-                        <a href="{{ route('ventas.edit', $venta->id) }}" class="btn btn-warning">Editar</a>
+                        <!--<a href="{{ route('ventas.edit', $venta->id) }}" class="btn btn-warning">Editar</a>-->
                         <form action="{{ route('ventas.destroy', $venta->id) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
