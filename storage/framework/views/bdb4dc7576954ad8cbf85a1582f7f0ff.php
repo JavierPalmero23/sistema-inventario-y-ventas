@@ -13,6 +13,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="<?php echo e(asset('css/app.css')); ?>">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <style>
         .wrapper {
             display: flex;
@@ -48,55 +49,75 @@
             border-radius: 25px;
 
         }
+        .chart-row {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .chart-item {
+            flex: 1;
+            min-width: 300px;
+            width: 40%;
+            height: 40%;
+            margin: auto;
+        }
+        canvas {
+            width: 90% !important;
+            height: 100% !important;
+        }
+        canvas.pastel {
+            width: 44% !important;
+            height: 50% !important;
+        }
     </style>
     </div>
     <div class="wrapper">
         <nav class="sidebar">
-            <h2 class="text-center">POS System</h2>
-    <a href="<?php echo e(route('categorias.index')); ?>">
-        <img src="<?php echo e(asset('images/tags.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
-        Categorías
-    </a>
-    <a href="<?php echo e(route('clientes.index')); ?>">
-        <img src="<?php echo e(asset('images/target-audience.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
-        Clientes
-    </a>
-    <a href="<?php echo e(route('compras.index')); ?>">
-        <img src="<?php echo e(asset('images/shopping-cart-add.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
-        Compras
-    </a>
-    <a href="<?php echo e(route('cotizaciones.index')); ?>">
-        <img src="<?php echo e(asset('images/calculator-money.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
-        Cotizaciones
-    </a>
-    <a href="<?php echo e(route('formas-pago.index')); ?>">
-        <img src="<?php echo e(asset('images/credit-card.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
-        Formas de Pago
-    </a>
-    <a href="<?php echo e(route('inventarios.index')); ?>">
-        <img src="<?php echo e(asset('images/shelves.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
-        Inventarios
-    </a>
-    <a href="<?php echo e(route('productos.index')); ?>">
-        <img src="<?php echo e(asset('images/box-open.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
-        Productos
-    </a>
-    <a href="<?php echo e(route('proveedores.index')); ?>">
-        <img src="<?php echo e(asset('images/people-network-partner.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
-        Proveedores
-    </a>
-    <a href="<?php echo e(route('reportes.generar')); ?>">
-        <img src="<?php echo e(asset('images/report.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
-        Reportes
-    </a>
-    <a href="<?php echo e(route('vendedores.index')); ?>">
-        <img src="<?php echo e(asset('images/seller.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
-        Vendedores
-    </a>
-    <a href="<?php echo e(route('ventas.index')); ?>">
-        <img src="<?php echo e(asset('images/ticket.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
-        Ventas
-    </a>
+            <a href="<?php echo e(route('dashboard')); ?>"><h2 class="text-center">POS System</h2></a>
+            <a href="<?php echo e(route('categorias.index')); ?>">
+                <img src="<?php echo e(asset('images/tags.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
+                Categorías
+            </a>
+            <a href="<?php echo e(route('clientes.index')); ?>">
+                <img src="<?php echo e(asset('images/target-audience.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
+                Clientes
+            </a>
+            <a href="<?php echo e(route('compras.index')); ?>">
+                <img src="<?php echo e(asset('images/shopping-cart-add.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
+                Compras
+            </a>
+            <a href="<?php echo e(route('cotizaciones.index')); ?>">
+                <img src="<?php echo e(asset('images/calculator-money.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
+                Cotizaciones
+            </a>
+            <a href="<?php echo e(route('formas-pago.index')); ?>">
+                <img src="<?php echo e(asset('images/credit-card.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
+                Formas de Pago
+            </a>
+            <a href="<?php echo e(route('inventarios.index')); ?>">
+                <img src="<?php echo e(asset('images/shelves.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
+                Inventarios
+            </a>
+            <a href="<?php echo e(route('productos.index')); ?>">
+                <img src="<?php echo e(asset('images/box-open.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
+                Productos
+            </a>
+            <a href="<?php echo e(route('proveedores.index')); ?>">
+                <img src="<?php echo e(asset('images/people-network-partner.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
+                Proveedores
+            </a>
+            <a href="<?php echo e(route('reportes.generar')); ?>">
+                <img src="<?php echo e(asset('images/report.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
+                Reportes
+            </a>
+            <a href="<?php echo e(route('vendedores.index')); ?>">
+                <img src="<?php echo e(asset('images/seller.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
+                Vendedores
+            </a>
+            <a href="<?php echo e(route('ventas.index')); ?>">
+                <img src="<?php echo e(asset('images/ticket.png')); ?>" style="width: 20px; height: 20px; vertical-align: middle;">
+                Ventas
+            </a>
             <div class="mt-3 space-y-1">
                 <form method="POST" action="<?php echo e(route('logout')); ?>">
                     <?php echo csrf_field(); ?>

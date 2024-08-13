@@ -13,6 +13,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <style>
         .wrapper {
             display: flex;
@@ -48,55 +49,75 @@
             border-radius: 25px;
 
         }
+        .chart-row {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .chart-item {
+            flex: 1;
+            min-width: 300px;
+            width: 40%;
+            height: 40%;
+            margin: auto;
+        }
+        canvas {
+            width: 90% !important;
+            height: 100% !important;
+        }
+        canvas.pastel {
+            width: 44% !important;
+            height: 50% !important;
+        }
     </style>
     </div>
     <div class="wrapper">
         <nav class="sidebar">
-            <h2 class="text-center">POS System</h2>
-    <a href="{{ route('categorias.index') }}">
-        <img src="{{ asset('images/tags.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
-        Categorías
-    </a>
-    <a href="{{ route('clientes.index') }}">
-        <img src="{{ asset('images/target-audience.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
-        Clientes
-    </a>
-    <a href="{{ route('compras.index') }}">
-        <img src="{{ asset('images/shopping-cart-add.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
-        Compras
-    </a>
-    <a href="{{ route('cotizaciones.index') }}">
-        <img src="{{ asset('images/calculator-money.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
-        Cotizaciones
-    </a>
-    <a href="{{ route('formas-pago.index') }}">
-        <img src="{{ asset('images/credit-card.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
-        Formas de Pago
-    </a>
-    <a href="{{ route('inventarios.index') }}">
-        <img src="{{ asset('images/shelves.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
-        Inventarios
-    </a>
-    <a href="{{ route('productos.index') }}">
-        <img src="{{ asset('images/box-open.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
-        Productos
-    </a>
-    <a href="{{ route('proveedores.index') }}">
-        <img src="{{ asset('images/people-network-partner.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
-        Proveedores
-    </a>
-    <a href="{{ route('reportes.generar') }}">
-        <img src="{{ asset('images/report.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
-        Reportes
-    </a>
-    <a href="{{ route('vendedores.index') }}">
-        <img src="{{ asset('images/seller.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
-        Vendedores
-    </a>
-    <a href="{{ route('ventas.index') }}">
-        <img src="{{ asset('images/ticket.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
-        Ventas
-    </a>
+            <a href="{{ route('dashboard') }}"><h2 class="text-center">POS System</h2></a>
+            <a href="{{ route('categorias.index') }}">
+                <img src="{{ asset('images/tags.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
+                Categorías
+            </a>
+            <a href="{{ route('clientes.index') }}">
+                <img src="{{ asset('images/target-audience.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
+                Clientes
+            </a>
+            <a href="{{ route('compras.index') }}">
+                <img src="{{ asset('images/shopping-cart-add.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
+                Compras
+            </a>
+            <a href="{{ route('cotizaciones.index') }}">
+                <img src="{{ asset('images/calculator-money.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
+                Cotizaciones
+            </a>
+            <a href="{{ route('formas-pago.index') }}">
+                <img src="{{ asset('images/credit-card.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
+                Formas de Pago
+            </a>
+            <a href="{{ route('inventarios.index') }}">
+                <img src="{{ asset('images/shelves.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
+                Inventarios
+            </a>
+            <a href="{{ route('productos.index') }}">
+                <img src="{{ asset('images/box-open.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
+                Productos
+            </a>
+            <a href="{{ route('proveedores.index') }}">
+                <img src="{{ asset('images/people-network-partner.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
+                Proveedores
+            </a>
+            <a href="{{ route('reportes.generar') }}">
+                <img src="{{ asset('images/report.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
+                Reportes
+            </a>
+            <a href="{{ route('vendedores.index') }}">
+                <img src="{{ asset('images/seller.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
+                Vendedores
+            </a>
+            <a href="{{ route('ventas.index') }}">
+                <img src="{{ asset('images/ticket.png') }}" style="width: 20px; height: 20px; vertical-align: middle;">
+                Ventas
+            </a>
             <div class="mt-3 space-y-1">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
