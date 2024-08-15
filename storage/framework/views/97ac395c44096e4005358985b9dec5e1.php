@@ -11,8 +11,6 @@
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Existencia</th>
-                <th>Categoría</th>
-                <th>Fecha<br>Compra</th>
                 <th>Precio<br>Compra</th>
                 <th>Precio<br>Venta</th>
                 <th>Acciones</th>
@@ -32,12 +30,10 @@
                 <td><?php echo e($producto->id_producto); ?></td>
                 <td><?php echo e($producto->nombre); ?></td>
                 <td><?php echo e($producto->existencia); ?></td>
-                <td><?php echo e($producto->categoria->nombre); ?></td>
-                <td><?php echo e($producto->fecha_compra); ?></td>
                 <td><?php echo e($producto->pc); ?></td>
                 <td><?php echo e($producto->pv); ?></td>
                 <td>
-                    <!--aunno<a href="<?php echo e(route('productos.show', $producto->id_producto)); ?>" class="btn btn-info">Ver</a>-->
+                    <a href="<?php echo e(route('productos.show', $producto->id_producto)); ?>" class="btn btn-info">Ver</a>
                     <a href="<?php echo e(route('productos.edit', $producto->id_producto)); ?>" class="btn btn-warning">Editar</a>
                     <form action="<?php echo e(route('productos.destroy', $producto->id_producto)); ?>" method="POST" style="display:inline;">
                         <?php echo csrf_field(); ?>

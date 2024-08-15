@@ -14,8 +14,6 @@
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Existencia</th>
-                <th>Categoría</th>
-                <th>Fecha<br>Compra</th>
                 <th>Precio<br>Compra</th>
                 <th>Precio<br>Venta</th>
                 <th>Acciones</th>
@@ -35,12 +33,10 @@
                 <td>{{ $producto->id_producto }}</td>
                 <td>{{ $producto->nombre }}</td>
                 <td>{{ $producto->existencia }}</td>
-                <td>{{ $producto->categoria->nombre }}</td>
-                <td>{{ $producto->fecha_compra }}</td>
                 <td>{{ $producto->pc }}</td>
                 <td>{{ $producto->pv }}</td>
                 <td>
-                    <!--aunno<a href="{{ route('productos.show', $producto->id_producto) }}" class="btn btn-info">Ver</a>-->
+                    <a href="{{ route('productos.show', $producto->id_producto) }}" class="btn btn-info">Ver</a>
                     <a href="{{ route('productos.edit', $producto->id_producto) }}" class="btn btn-warning">Editar</a>
                     <form action="{{ route('productos.destroy', $producto->id_producto) }}" method="POST" style="display:inline;">
                         @csrf
