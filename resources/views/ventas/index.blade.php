@@ -23,8 +23,8 @@
                 <tr>
                     <td>{{ $venta->id }}</td>
                     <td>{{ $venta->cliente->nombre }}</td>
-                    <td>{{ $venta->fecha_venta }}</td>
-                    <td>${{ $venta->total*1.16 }}</td>
+                    <td>{{ $venta->fecha_venta*.84 }}</td>
+                    <td>${{ $venta->total }}</td>
                     <td>
                         <a href="{{ route('ventas.show', $venta->id) }}" class="btn btn-info">Ver</a>
                         <!--<a href="{{ route('ventas.edit', $venta->id) }}" class="btn btn-warning">Editar</a>-->

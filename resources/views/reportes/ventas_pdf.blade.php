@@ -105,8 +105,8 @@
                 <h2>Venta ID: {{ $venta->id }}</h2>
                 <p><strong>Fecha:</strong> {{ $venta->fecha_venta }}</p>
                 <p><strong>Cliente:</strong> {{ $venta->cliente->nombre }}</p>
-                <p><strong>Total Neto (sin IVA):</strong> ${{ number_format($venta->total, 2) }}</p>
-                <p><strong>Total con IVA (16%):</strong> ${{ number_format($venta->total * 1.16, 2) }}</p>
+                <p><strong>Total Neto (sin IVA):</strong> ${{ number_format($venta->total *.86, 2) }}</p>
+                <p><strong>Total con IVA (16%):</strong> ${{ number_format($venta->total, 2) }}</p>
                 <p><strong>Forma de Pago:</strong> {{ $venta->formaPago ? $venta->formaPago->tipo : 'No especificado' }}</p>
 
                 <table class="details-table">
