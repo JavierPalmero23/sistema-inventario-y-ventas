@@ -31,7 +31,9 @@ class ReporteController extends Controller
         $tipo_reporte = $request->input('tipo_reporte');
         $desde = $request->input('desde');
         $hasta = $request->input('hasta');
-
+        if (!$tipo_reporte || !$desde || !$hasta) {
+            return redirect()->back()->with('error', 'Faltan parámetros necesarios para generar el reporte.');
+        }
         if ($tipo_reporte == 'ventas') {
             $data = Venta::whereBetween('fecha_venta', [$desde, $hasta])->get();
             $pdf = PDF::loadView('reportes.ventas_pdf', compact('data', 'desde', 'hasta'));

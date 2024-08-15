@@ -15,6 +15,7 @@
     <table class="table">
         <thead>
             <tr>
+                <th></th>
                 <th>Producto</th>
                 <th>Cantidad</th>
                 <th>Precio</th>
@@ -23,6 +24,13 @@
         <tbody>
             @foreach($venta->productos as $producto)
                 <tr>
+                <td>
+                    @if($producto->img)
+                    <img src="{{ asset('storage/' . $producto->img) }}" alt="Producto Imagen" width="100px">
+                    @else
+                        Sin Imagen
+                    @endif
+                </td>
                     <td>{{ $producto->nombre }}</td>
                     <td>{{ $producto->pivot->cantidad }}</td>
                     <td>{{ $producto->pivot->precio }}</td>

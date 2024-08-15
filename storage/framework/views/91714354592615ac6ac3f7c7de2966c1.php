@@ -13,6 +13,7 @@
     <table class="table">
         <thead>
             <tr>
+                <th></th>
                 <th>Producto</th>
                 <th>Cantidad</th>
                 <th>Precio</th>
@@ -21,6 +22,13 @@
         <tbody>
             <?php $__currentLoopData = $venta->productos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $producto): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
+                <td>
+                    <?php if($producto->img): ?>
+                    <img src="<?php echo e(asset('storage/' . $producto->img)); ?>" alt="Producto Imagen" width="100px">
+                    <?php else: ?>
+                        Sin Imagen
+                    <?php endif; ?>
+                </td>
                     <td><?php echo e($producto->nombre); ?></td>
                     <td><?php echo e($producto->pivot->cantidad); ?></td>
                     <td><?php echo e($producto->pivot->precio); ?></td>
