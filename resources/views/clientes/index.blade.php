@@ -13,13 +13,8 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-                <th>Correo</th>
-                <th>Teléfono</th>
-                <th>Dirección</th>
-                <th>RFC</th>
                 <th>Razón Social</th>
                 <th>Código Postal</th>
-                <th>Regimen Fiscal</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -28,15 +23,10 @@
             <tr>
                 <td>{{ $cliente->id_cliente }}</td>
                 <td>{{ $cliente->nombre }}</td>
-                <td>{{ $cliente->correo }}</td>
-                <td>{{ $cliente->telefono }}</td>
-                <td>{{ $cliente->direccion }}</td>
-                <td>{{ $cliente->rfc }}</td>
                 <td>{{ $cliente->razon_social }}</td>
                 <td>{{ $cliente->codigo_postal }}</td>
-                <td>{{ $cliente->regimen_fiscal }}</td>
                 <td>
-                    <!--aunno<a href="{{ route('clientes.show', $cliente->id_cliente) }}" class="btn btn-info">Ver</a>-->
+                    <a href="{{ route('clientes.show', $cliente->id_cliente) }}" class="btn btn-info">Ver</a>
                     <a href="{{ route('clientes.edit', $cliente->id_cliente) }}" class="btn btn-warning">Editar</a>
                     <form action="{{ route('clientes.destroy', $cliente->id_cliente) }}" method="POST" style="display:inline;">
                         @csrf

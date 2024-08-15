@@ -10,13 +10,8 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
-                <th>Correo</th>
-                <th>Teléfono</th>
-                <th>Dirección</th>
-                <th>RFC</th>
                 <th>Razón Social</th>
                 <th>Código Postal</th>
-                <th>Regimen Fiscal</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -25,15 +20,10 @@
             <tr>
                 <td><?php echo e($cliente->id_cliente); ?></td>
                 <td><?php echo e($cliente->nombre); ?></td>
-                <td><?php echo e($cliente->correo); ?></td>
-                <td><?php echo e($cliente->telefono); ?></td>
-                <td><?php echo e($cliente->direccion); ?></td>
-                <td><?php echo e($cliente->rfc); ?></td>
                 <td><?php echo e($cliente->razon_social); ?></td>
                 <td><?php echo e($cliente->codigo_postal); ?></td>
-                <td><?php echo e($cliente->regimen_fiscal); ?></td>
                 <td>
-                    <!--aunno<a href="<?php echo e(route('clientes.show', $cliente->id_cliente)); ?>" class="btn btn-info">Ver</a>-->
+                    <a href="<?php echo e(route('clientes.show', $cliente->id_cliente)); ?>" class="btn btn-info">Ver</a>
                     <a href="<?php echo e(route('clientes.edit', $cliente->id_cliente)); ?>" class="btn btn-warning">Editar</a>
                     <form action="<?php echo e(route('clientes.destroy', $cliente->id_cliente)); ?>" method="POST" style="display:inline;">
                         <?php echo csrf_field(); ?>
