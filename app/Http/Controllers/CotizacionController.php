@@ -39,7 +39,7 @@ class CotizacionController extends Controller
             $cotizacion = Cotizacione::create([
                 'id_cliente' => $request->id_cliente,
                 'fecha_cot' => $request->fecha_cot,
-                'total' => array_sum(array_map(fn($p) => $p['cantidad'] * $p['precio'], $request->productos))*1.18,
+                'total' => array_sum(array_map(fn($p) => $p['cantidad'] * $p['precio'], $request->productos))*1.16,
                 'vigencia' => $request->vigencia,
                 'comentarios' => $request->comentarios,
             ]);
