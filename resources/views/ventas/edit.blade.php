@@ -40,6 +40,17 @@
             <button type="button" onclick="addProducto()" class="btn btn-secondary">Add Producto</button>
         </div>
         <br>
+        <div class="form-group">
+            <label for="id_pago">Forma de Pago</label>
+            <select name="id_pago" class="form-control" id="id_pago" required>
+                @foreach($formasPago as $formaPago)
+                <option value="{{ $formaPago->id_pago }}" {{ $venta->id_pago == $formaPago->id_pago ? 'selected' : '' }}>
+                    {{ $formaPago->tipo }}
+                </option>
+                @endforeach
+            </select>
+        </div>
+        <br>
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 

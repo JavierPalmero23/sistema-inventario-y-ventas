@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Venta;
 use App\Models\Cliente;
 use App\Models\Producto;
+use App\Models\FormasPago;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,7 +13,7 @@ class VentaController extends Controller
 {
     public function index()
     {
-        $ventas = Venta::with('cliente', 'productos')->get();
+        $ventas = Venta::with('cliente', 'productos','formaPago')->get();
         return view('ventas.index', compact('ventas'));
     }
 
@@ -20,7 +21,8 @@ class VentaController extends Controller
     {
         $clientes = Cliente::all();
         $productos = Producto::all();
-        return view('ventas.create', compact('clientes', 'productos'));
+        $formasPago = FormasPago::all();
+        return view('ventas.create', compact('clientes', 'productos', 'formasPago'));
     }
 
     public function store(Request $request)
@@ -31,6 +33,7 @@ class VentaController extends Controller
             'productos.*.id_producto' => 'required|exists:productos,id_producto',
             'productos.*.cantidad' => 'required|integer|min:1',
             'productos.*.precio' => 'required|numeric|min:0',
+            'id_pago' => 'required|exists:formas_pagos,id_pago', 
         ]);
 
         DB::transaction(function () use ($request) {
@@ -38,6 +41,7 @@ class VentaController extends Controller
                 'id_cliente' => $request->id_cliente,
                 'fecha_venta' => $request->fecha_venta,
                 'total' => 0,
+                'id_pago' => $request->id_pago,
             ]);
 
             $total = 0;
@@ -50,7 +54,6 @@ class VentaController extends Controller
                     throw new \Exception("Cantidad insuficiente para el producto: {$producto->nombre}");
                 }
 
-                // Reduce the quantity from the producto
                 $producto->existencia -= $cantidad;
                 $producto->save();
 
@@ -79,6 +82,7 @@ class VentaController extends Controller
     {
         $clientes = Cliente::all();
         $productos = Producto::all();
+        $formasPago = FormasPago::all(); 
         return view('ventas.edit', compact('venta', 'clientes', 'productos'));
     }
 
@@ -90,6 +94,7 @@ class VentaController extends Controller
             'productos.*.id_producto' => 'required|exists:productos,id_producto',
             'productos.*.cantidad' => 'required|integer|min:1',
             'productos.*.precio' => 'required|numeric|min:0.01',
+            'id_pago' => 'required|exists:formas_pagos,id_pago', 
         ]);
 
         DB::transaction(function () use ($request, $venta) {
@@ -101,7 +106,6 @@ class VentaController extends Controller
                 }, 0),
             ]);
 
-            // Detach existing products
             $venta->productos()->detach();
 
             foreach ($request->productos as $productoData) {
@@ -111,8 +115,6 @@ class VentaController extends Controller
                 if ($producto->existencia < $cantidad) {
                     throw new \Exception("Cantidad insuficiente para el producto: {$producto->nombre}");
                 }
-
-                // Reduce the quantity from the producto
                 $producto->existencia -= $cantidad;
                 $producto->save();
 

@@ -35,6 +35,15 @@
             <button type="button" onclick="addProducto()" class="btn btn-secondary">Agregar Producto</button>
         </div>
         <br>
+        <div class="form-group">
+            <label for="id_pago">Forma de Pago</label>
+            <select name="id_pago" class="form-control" id="id_pago" required>
+                @foreach($formasPago as $formaPago)
+                <option value="{{ $formaPago->id_pago }}">{{ $formaPago->tipo }}</option>
+                @endforeach
+            </select>
+        </div>
+        <br>
         <a href="{{ route('ventas.index') }}" class="btn btn-secondary">Volver</a>
         <button type="submit" class="btn btn-primary">Vender</button>
     </form>

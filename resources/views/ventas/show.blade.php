@@ -7,6 +7,7 @@
     <p><strong>ID:</strong> {{ $venta->id }}</p>
     <p><strong>Cliente:</strong> {{ $venta->cliente->nombre }}</p>
     <p><strong>Fecha Venta:</strong> {{ $venta->fecha_venta }}</p>
+    <p><strong>Forma de Pago:</strong> {{ $venta->formaPago ? $venta->formaPago->tipo : 'No especificado' }}</p> 
     <p><strong>Neto(sin IVA):</strong> ${{ $venta->total }}</p>
     <p><strong>Total:</strong> ${{ $venta->total*1.16 }}</p>
 

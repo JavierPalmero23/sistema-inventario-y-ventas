@@ -33,6 +33,15 @@
             <button type="button" onclick="addProducto()" class="btn btn-secondary">Agregar Producto</button>
         </div>
         <br>
+        <div class="form-group">
+            <label for="id_pago">Forma de Pago</label>
+            <select name="id_pago" class="form-control" id="id_pago" required>
+                <?php $__currentLoopData = $formasPago; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $formaPago): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <option value="<?php echo e($formaPago->id_pago); ?>"><?php echo e($formaPago->tipo); ?></option>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </select>
+        </div>
+        <br>
         <a href="<?php echo e(route('ventas.index')); ?>" class="btn btn-secondary">Volver</a>
         <button type="submit" class="btn btn-primary">Vender</button>
     </form>

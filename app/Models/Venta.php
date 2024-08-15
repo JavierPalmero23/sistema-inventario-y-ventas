@@ -13,6 +13,7 @@ class Venta extends Model
         'id_cliente',
         'fecha_venta',
         'total',
+        'id_pago',
     ];
 
 
@@ -22,10 +23,15 @@ class Venta extends Model
     }
 
     public function productos()
-{
-    return $this->belongsToMany(Producto::class, 'venta_producto', 'id_venta', 'id_producto')
-                ->withPivot('cantidad', 'precio')
-                ->withTimestamps();
-}
+    {
+        return $this->belongsToMany(Producto::class, 'venta_producto', 'id_venta', 'id_producto')
+            ->withPivot('cantidad', 'precio')
+            ->withTimestamps();
+    }
 
+    public function formaPago()
+    {
+        return $this->belongsTo(FormasPago::class, 'id_pago');
+    }
+    
 }

@@ -125,9 +125,11 @@ return new class extends Migration
             $table->unsignedBigInteger('id_cliente');
             $table->date('fecha_venta');
             $table->decimal('total', 10, 2);
+            $table->unsignedBigInteger('id_pago');
             $table->timestamps();
 
             $table->foreign('id_cliente')->references('id_cliente')->on('clientes')->onDelete('cascade');
+            $table->foreign('id_pago')->references('id_pago')->on('formas_pagos')->onDelete('cascade');
         });
 
         Schema::create('inventarios', function (Blueprint $table) {

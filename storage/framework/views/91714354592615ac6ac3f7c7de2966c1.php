@@ -5,6 +5,7 @@
     <p><strong>ID:</strong> <?php echo e($venta->id); ?></p>
     <p><strong>Cliente:</strong> <?php echo e($venta->cliente->nombre); ?></p>
     <p><strong>Fecha Venta:</strong> <?php echo e($venta->fecha_venta); ?></p>
+    <p><strong>Forma de Pago:</strong> <?php echo e($venta->formaPago ? $venta->formaPago->tipo : 'No especificado'); ?></p> 
     <p><strong>Neto(sin IVA):</strong> $<?php echo e($venta->total); ?></p>
     <p><strong>Total:</strong> $<?php echo e($venta->total*1.16); ?></p>
 
