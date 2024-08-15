@@ -25,6 +25,7 @@ Route::middleware(['auth'])->group(function () {
 use App\Http\Controllers\ProductoController;
 Route::middleware(['auth'])->group(function () {
     Route::resource('productos', ProductoController::class);
+
 });
 
 use App\Http\Controllers\ClienteController;

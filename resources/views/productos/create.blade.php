@@ -7,7 +7,7 @@
 <div class="container">
 <br>
     <h1>Crear Producto</h1>
-    <form action="{{ route('productos.store') }}" method="POST">
+    <form action="{{ route('productos.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="nombre">Nombre</label>
@@ -39,6 +39,10 @@
         <div class="form-group">
             <label for="descripcion_larga">Descripción Larga</label>
             <textarea name="descripcion_larga" class="form-control" id="descripcion_larga" required></textarea>
+        </div>
+        <div>
+            <label>Imagen del Producto:</label>
+            <input type="file" name="img" class="form-control">
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
         <a href="{{ route('productos.index') }}" class="btn btn-dark">Volver</a>

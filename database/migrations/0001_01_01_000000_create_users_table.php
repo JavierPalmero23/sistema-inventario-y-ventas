@@ -53,6 +53,7 @@ return new class extends Migration
             $table->decimal('pv', 8, 2);
             $table->string('descripcion_corta');
             $table->text('descripcion_larga');
+            $table->string('img')->nullable();
             $table->timestamps();
         });
 
@@ -178,6 +179,7 @@ return new class extends Migration
             $table->foreign('id_cotizacione')->references('id')->on('cotizaciones')->onDelete('cascade');
             $table->foreign('id_producto')->references('id_producto')->on('productos')->onDelete('cascade');
         });
+        
     }
 
     /**

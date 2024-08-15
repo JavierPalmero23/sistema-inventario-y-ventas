@@ -17,15 +17,15 @@
     <div class="chart-row">
         <div class="chart-item">
             <h3>Total de Ventas Realizadas</h3>
-            <canvas id="ventasChart"></canvas>
+            <a href="/ventas"><canvas id="ventasChart"></canvas></a>
         </div>
         <div class="chart-item">
             <h3>Total Gastado en Compras</h3>
-            <canvas id="comprasChart"></canvas>
+            <a href="/compras"><canvas id="comprasChart"></canvas></a>
         </div>
         <div class="chart-item">
             <h3>Existencia de Productos</h3>
-            <canvas id="existenciaChart" class="pastel"></canvas>
+            <a href="/productos"><canvas id="existenciaChart" class="pastel"></canvas></a>
         </div>
     </div>
     

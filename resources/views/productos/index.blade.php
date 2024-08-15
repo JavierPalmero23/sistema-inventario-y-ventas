@@ -10,7 +10,7 @@
     <a href="{{ route('productos.create') }}" class="btn btn-primary">Crear Producto</a>
     <table class="table">
         <thead>
-            <tr>
+            <tr><th></th>
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Existencia</th>
@@ -24,6 +24,14 @@
         <tbody>
             @foreach($productos as $producto)
             <tr>
+                <td>
+                    @if($producto->img)
+                    <img src="{{ asset('storage/' . $producto->img) }}" alt="Producto Imagen" width="100px">
+
+                    @else
+                        Sin Imagen
+                    @endif
+                </td>
                 <td>{{ $producto->id_producto }}</td>
                 <td>{{ $producto->nombre }}</td>
                 <td>{{ $producto->existencia }}</td>

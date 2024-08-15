@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Producto;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProductoController extends Controller
 {
@@ -31,11 +33,18 @@ class ProductoController extends Controller
             'pc'=>'required',
             'pv'=>'required',
             'descripcion_corta' => 'required',
-            'descripcion_larga' => 'required'
-            //,'img'=>'required'
+            'descripcion_larga' => 'required',
+            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        Producto::create($request->all());
+        $data = $request->all();
+        
+        if ($request->hasFile('img')) {
+            $imagePath = $request->file('img')->store('images', 'public');
+            $data['img'] = $imagePath;
+        }
+
+        Producto::create($data);
         return redirect()->route('productos.index')
                          ->with('success', 'Producto creado con éxito.');
     }
@@ -63,15 +72,30 @@ class ProductoController extends Controller
             'pv'=>'required',
             'descripcion_corta' => 'required',
             'descripcion_larga' => 'required',
+            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $producto->update($request->all());
+        
+        $data = $request->all();
+
+        if ($request->hasFile('img')) {
+            if ($producto->img) {
+                Storage::disk('public')->delete($producto->img);
+            }
+            $imagePath = $request->file('img')->store('images', 'public');
+            $data['img'] = $imagePath;
+        }
+
+        $producto->update($data);
         return redirect()->route('productos.index')
                          ->with('success', 'Producto actualizado con éxito.');
     }
 
     public function destroy(Producto $producto)
     {
+        if ($producto->img) {
+            Storage::disk('public')->delete($producto->img);
+        }
         $producto->delete();
         return redirect()->route('productos.index')
                          ->with('success', 'Producto eliminado con éxito.');

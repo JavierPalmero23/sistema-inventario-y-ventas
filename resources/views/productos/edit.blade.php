@@ -7,7 +7,7 @@
 <div class="container">
 <br>
     <h1>Editar Producto</h1>
-    <form action="{{ route('productos.update', $producto->id_producto) }}" method="POST">
+    <form action="{{ route('productos.update', $producto->id_producto) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">
@@ -43,6 +43,13 @@
         <div class="form-group">
             <label for="descripcion_larga">Descripción Larga</label>
             <textarea name="descripcion_larga" class="form-control" id="descripcion_larga" required>{{ $producto->descripcion_larga }}</textarea>
+        </div>
+        <div>
+            <label>Imagen del Producto:</label>
+            <input type="file" name="img" class="form-control">
+            @if($producto->img)
+                <img src="{{ asset('storage/' . $producto->img) }}" alt="Imagen del Producto" style="max-width: 200px; margin-top: 10px;">
+            @endif
         </div>
         <button type="submit" class="btn btn-primary">Actualizar</button>
     </form>

@@ -7,7 +7,7 @@
     <a href="<?php echo e(route('productos.create')); ?>" class="btn btn-primary">Crear Producto</a>
     <table class="table">
         <thead>
-            <tr>
+            <tr><th></th>
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Existencia</th>
@@ -21,6 +21,14 @@
         <tbody>
             <?php $__currentLoopData = $productos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $producto): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr>
+                <td>
+                    <?php if($producto->img): ?>
+                    <img src="<?php echo e(asset('storage/' . $producto->img)); ?>" alt="Producto Imagen" width="100px">
+
+                    <?php else: ?>
+                        Sin Imagen
+                    <?php endif; ?>
+                </td>
                 <td><?php echo e($producto->id_producto); ?></td>
                 <td><?php echo e($producto->nombre); ?></td>
                 <td><?php echo e($producto->existencia); ?></td>

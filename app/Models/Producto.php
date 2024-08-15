@@ -13,7 +13,7 @@ class Producto extends Model
 
     protected $fillable = [
         'nombre', 'id_cat', 'fecha_compra', 'colore', 'existencia', 'pc', 'pv',
-        'descripcion_corta', 'descripcion_larga'
+        'descripcion_corta', 'descripcion_larga', 'img'
     ];
     
     protected $attributes = [
