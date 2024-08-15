@@ -40,7 +40,7 @@ class ReporteController extends Controller
 
     if ($tipo_reporte == 'ventas') {
         $data = Venta::whereBetween('fecha_venta', [$desde, $hasta])->get();
-        dd($data); 
+        //dd($data); 
         $pdf = PDF::loadView('reportes.ventas_pdf', compact('data', 'desde', 'hasta'));
     } elseif ($tipo_reporte == 'compras') {
         $data = Compra::whereBetween('fecha_compra', [$desde, $hasta])->get();
