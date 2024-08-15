@@ -50,13 +50,24 @@
                 @foreach($data as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->fecha }}</td>
+                        <td>
+                        @if($tipo_reporte == 'ventas')
+                            {{ $item->fecha_venta }}
+                        @else
+                            {{ $item->fecha_compra }}
+                        @endif</td>
                         @if($tipo_reporte == 'ventas')
                             <td>{{ $item->cliente->nombre }}</td>
                         @else
                             <td>{{ $item->proveedor->nombre }}</td>
                         @endif
-                        <td>{{ $item->total }}</td>
+                        <td>
+                        @if($tipo_reporte == 'ventas')
+                            ${{ $item->total }}
+                        @else
+                            ${{ $item->pc*$item->cantidad }}
+                        @endif
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

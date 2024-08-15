@@ -57,13 +57,28 @@ unset($__errorArgs, $__bag); ?>
                 <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
                         <td><?php echo e($item->id); ?></td>
-                        <td><?php echo e($item->fecha); ?></td>
+                        <td>
+                        <?php if($tipo_reporte == 'ventas'): ?>
+                            <?php echo e($item->fecha_venta); ?>
+
+                        <?php else: ?>
+                            <?php echo e($item->fecha_compra); ?>
+
+                        <?php endif; ?></td>
                         <?php if($tipo_reporte == 'ventas'): ?>
                             <td><?php echo e($item->cliente->nombre); ?></td>
                         <?php else: ?>
                             <td><?php echo e($item->proveedor->nombre); ?></td>
                         <?php endif; ?>
-                        <td><?php echo e($item->total); ?></td>
+                        <td>
+                        <?php if($tipo_reporte == 'ventas'): ?>
+                            $<?php echo e($item->total); ?>
+
+                        <?php else: ?>
+                            $<?php echo e($item->pc*$item->cantidad); ?>
+
+                        <?php endif; ?>
+                        </td>
                     </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
