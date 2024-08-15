@@ -66,7 +66,7 @@ class VentaController extends Controller
                 ]);
             }
 
-            $venta->total = $total;
+            $venta->total = $total*1.16;
             $venta->save();
         });
 
