@@ -170,17 +170,6 @@ return new class extends Migration
             $table->foreign('id_producto')->references('id_producto')->on('productos')->onDelete('cascade');
         });
 
-        Schema::create('cotizacion_producto', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('id_cotizacione');
-            $table->unsignedBigInteger('id_producto');
-            $table->integer('cantidad');
-            $table->decimal('precio', 10, 2);
-            $table->timestamps();
-
-            $table->foreign('id_cotizacione')->references('id')->on('cotizaciones')->onDelete('cascade');
-            $table->foreign('id_producto')->references('id_producto')->on('productos')->onDelete('cascade');
-        });
         
     }
 
@@ -189,7 +178,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cotizacion_producto');
         Schema::dropIfExists('venta_producto');
         Schema::dropIfExists('detalles_cotizaciones');
         Schema::dropIfExists('inventarios');

@@ -26,7 +26,7 @@
                 <td><?php echo e($cotizacion->vigencia); ?></td>
                 <td>
                     <a href="<?php echo e(route('cotizaciones.show', $cotizacion->id)); ?>">Ver</a>
-                    <a href="<?php echo e(route('cotizaciones.edit', $cotizacion->id)); ?>" class="btn btn-warning">Editar</a>
+                    <!-- para que lo quieres editar? jaj salu2 <a href="<?php echo e(route('cotizaciones.edit', $cotizacion->id)); ?>" class="btn btn-warning">Editar</a>-->
                     <form action="<?php echo e(route('cotizaciones.destroy', $cotizacion->id)); ?>" method="POST" style="display:inline;">
                         <?php echo csrf_field(); ?>
                         <?php echo method_field('DELETE'); ?>

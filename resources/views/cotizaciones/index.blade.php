@@ -29,7 +29,7 @@
                 <td>{{ $cotizacion->vigencia }}</td>
                 <td>
                     <a href="{{ route('cotizaciones.show', $cotizacion->id) }}">Ver</a>
-                    <a href="{{ route('cotizaciones.edit', $cotizacion->id) }}" class="btn btn-warning">Editar</a>
+                    <!-- para que lo quieres editar? jaj salu2 <a href="{{ route('cotizaciones.edit', $cotizacion->id) }}" class="btn btn-warning">Editar</a>-->
                     <form action="{{ route('cotizaciones.destroy', $cotizacion->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')

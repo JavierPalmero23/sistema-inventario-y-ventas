@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('title', 'Editar Cotización')
@@ -10,14 +9,6 @@
     <form action="{{ route('cotizaciones.update', $cotizacion->id) }}" method="POST">
         @csrf
         @method('PUT')
-        <div class="form-group">
-            <label for="id_producto">Producto</label>
-            <select name="id_producto" class="form-control" id="id_producto" required>
-                @foreach($productos as $producto)
-                <option value="{{ $producto->id_producto }}" {{ $cotizacion->id_producto == $producto->id_producto ? 'selected' : '' }}>{{ $producto->nombre }}</option>
-                @endforeach
-            </select>
-        </div>
         <div class="form-group">
             <label for="id_cliente">Cliente</label>
             <select name="id_cliente" class="form-control" id="id_cliente" required>

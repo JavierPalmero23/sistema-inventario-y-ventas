@@ -44,31 +44,37 @@ class CotizacionController extends Controller
                 'comentarios' => $request->comentarios,
             ]);
 
-            #foreach ($request->productos as $producto) {
-            #    $cotizacion->producto()->create([
-            #        'id_producto' => $producto['id_producto'],
-            #        'cantidad' => $producto['cantidad'],
-            #        'precio' => $producto['precio'],
-            #    ]);
-            #}
+            foreach ($request->productos as $producto) {
+                $cotizacion->productos()->attach($producto['id_producto'], [
+                    'cantidad' => $producto['cantidad'],
+                    'precio' => $producto['precio'],
+                ]);
+            }
         });
 
         return redirect()->route('cotizaciones.index')->with('success', 'Cotización creada exitosamente.');
     }
 
-    public function show(Cotizacione $cotizacion)
-    {
-        $cotizacion->load('productos');
-        return view('cotizaciones.show', compact('cotizacion'));
+    public function show($id)
+{
+    $cotizacion = Cotizacione::with('cliente', 'detalles.producto')->find($id);
+
+    if (!$cotizacion) {
+        return redirect()->route('cotizaciones.index')->with('error', 'Cotización no encontrada.');
     }
 
-    public function edit(Cotizacione $cotizacion)
-    {
-        $productos = Producto::all();
-        $clientes = Cliente::all();
-        $cotizacion->load('productos');
-        return view('cotizaciones.edit', compact('cotizacion', 'productos', 'clientes'));
-    }
+    return view('cotizaciones.show', compact('cotizacion'));
+}
+
+
+public function edit($id)
+{
+    $cotizacion = Cotizacione::findOrFail($id);
+    $clientes = Cliente::all();
+    return view('cotizaciones.edit', compact('cotizacion', 'clientes'));
+}
+
+
 
     public function update(Request $request, Cotizacione $cotizacion)
     {
@@ -77,7 +83,7 @@ class CotizacionController extends Controller
             'fecha_cot' => 'required|date',
             'vigencia' => 'required|date',
             'comentarios' => 'nullable|string',
-            'productos.*.id_producto' => 'required|exists:productos,id',
+            'productos.*.id_producto' => 'required|exists:productos,id_producto',
             'productos.*.cantidad' => 'required|integer|min:1',
             'productos.*.precio' => 'required|numeric|min:0',
         ]);
@@ -91,11 +97,10 @@ class CotizacionController extends Controller
                 'comentarios' => $request->comentarios,
             ]);
 
-            $cotizacion->producto()->delete();
+            $cotizacion->productos()->detach();
 
             foreach ($request->productos as $producto) {
-                $cotizacion->producto()->create([
-                    'id_producto' => $producto['id_producto'],
+                $cotizacion->productos()->attach($producto['id_producto'], [
                     'cantidad' => $producto['cantidad'],
                     'precio' => $producto['precio'],
                 ]);
