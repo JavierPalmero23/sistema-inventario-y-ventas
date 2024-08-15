@@ -2,12 +2,11 @@
 
 @section('content')
 <div class="container">
-<br>
+    <br>
     <h1>Generar Reporte</h1>
 
     <form action="{{ route('reportes.generar') }}" method="GET">
         @csrf
-
         <div class="mb-4">
             <label for="tipo_reporte">Tipo de Reporte:</label>
             <select id="tipo_reporte" name="tipo_reporte" class="form-control">
@@ -30,7 +29,6 @@
         </div>
 
         <button type="submit" class="btn btn-info">Generar Reporte</button>
-        <a href="{{ route('reportes.generar.pdf', ['tipo_reporte' => old('tipo_reporte'), 'desde' => old('desde'), 'hasta' => old('hasta')]) }}" class="btn btn-secondary">Descargar PDF</a>
     </form>
 
     @isset($data)
@@ -63,6 +61,13 @@
                 @endforeach
             </tbody>
         </table>
+        <form action="{{ route('reportes.generar.pdf') }}" method="POST">
+            @csrf
+            <input type="hidden" name="tipo_reporte" value="{{ $tipo_reporte }}">
+            <input type="hidden" name="desde" value="{{ $desde }}">
+            <input type="hidden" name="hasta" value="{{ $hasta }}">
+            <button type="submit" class="btn btn-secondary">Descargar PDF</button>
+        </form>
     @endisset
     <br>
 </div>

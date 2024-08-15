@@ -3,18 +3,9 @@
 <head>
     <title>Reporte de Compras</title>
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
     </style>
 </head>
 <body>
@@ -31,7 +22,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($compras as $compra)
+            @foreach($data as $compra)
                 <tr>
                     <td>{{ $compra->id }}</td>
                     <td>{{ $compra->fecha_compra }}</td>

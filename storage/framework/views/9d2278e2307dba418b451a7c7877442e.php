@@ -2,12 +2,11 @@
 
 <?php $__env->startSection('content'); ?>
 <div class="container">
-<br>
+    <br>
     <h1>Generar Reporte</h1>
 
     <form action="<?php echo e(route('reportes.generar')); ?>" method="GET">
         <?php echo csrf_field(); ?>
-
         <div class="mb-4">
             <label for="tipo_reporte">Tipo de Reporte:</label>
             <select id="tipo_reporte" name="tipo_reporte" class="form-control">
@@ -37,7 +36,6 @@ unset($__errorArgs, $__bag); ?>
         </div>
 
         <button type="submit" class="btn btn-info">Generar Reporte</button>
-        <a href="<?php echo e(route('reportes.generar.pdf', ['tipo_reporte' => old('tipo_reporte'), 'desde' => old('desde'), 'hasta' => old('hasta')])); ?>" class="btn btn-secondary">Descargar PDF</a>
     </form>
 
     <?php if(isset($data)): ?>
@@ -70,6 +68,13 @@ unset($__errorArgs, $__bag); ?>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
         </table>
+        <form action="<?php echo e(route('reportes.generar.pdf')); ?>" method="POST">
+            <?php echo csrf_field(); ?>
+            <input type="hidden" name="tipo_reporte" value="<?php echo e($tipo_reporte); ?>">
+            <input type="hidden" name="desde" value="<?php echo e($desde); ?>">
+            <input type="hidden" name="hasta" value="<?php echo e($hasta); ?>">
+            <button type="submit" class="btn btn-secondary">Descargar PDF</button>
+        </form>
     <?php endif; ?>
     <br>
 </div>

@@ -70,7 +70,10 @@ Route::middleware(['auth'])->group(function () {
 
 use App\Http\Controllers\ReporteController;
 Route::get('/reportes', [ReporteController::class, 'index'])->name('reportes.generar');
-Route::get('/reportes/pdf', [ReporteController::class, 'downloadPDF'])->name('reportes.generar.pdf');
+Route::post('/reportes/pdf', [ReporteController::class, 'downloadPDF'])->name('reportes.generar.pdf');
+
+
+
 
 
 
